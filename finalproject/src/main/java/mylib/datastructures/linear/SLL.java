@@ -7,22 +7,25 @@ package mylib;
 
 public class SLL
 {
-    private linkedListNode head;
-    // private linkedListNode next;
-    // private linkedListNode temp;
-    // private linkedListNode prev;
+    private DNode head;
+    private int size;
 
     public SLL() {
         head = null;
-  }
+    }
+
+    public SLL(DNode head) {
+
+    }
+
 
   // public void insertionSort() {}
 
   // public void insertInOrder(linkedListNode node) {}
 
-  public linkedListNode removeEndElement() {
-    linkedListNode current = head;
-    linkedListNode temp = null;
+  public DNode removeEndElement() {
+    DNode current = head;
+    DNode temp = null;
     while (current != null) {
       current = current.getNext();
       if (current.getNext().getNext() == null) {
@@ -34,14 +37,14 @@ public class SLL
     return temp;
   }
 
-  public linkedListNode removeFirstElement() {
+  public DNode removeFirstElement() {
     temp = head;
     head = head.getNext();
     return temp;
   }
 
-  public linkedListNode removeElement(int id) {
-    linkedListNode current = head;
+  public DNode removeElement(int id) {
+    DNode current = head;
     // If the id given is the first element
     if (head.getId() == id) {
       return removeFirstElement();
@@ -61,7 +64,7 @@ public class SLL
     return temp;
   }
 
-  public void insertToEndOfList(linkedListNode node) {
+  public void insertToEndOfList(DNode node) {
 
     if (head == null) {
       head = node;
@@ -70,7 +73,7 @@ public class SLL
     }
   }
 
-  public void insertToFrontOfList(linkedListNode node) {
+  public void insertToFrontOfList(DNode node) {
     if (head == null) {
       head = node;
     } else {
@@ -83,7 +86,7 @@ public class SLL
     recursivePrintList(head);
   }
 
-  private void recursivePrintList(linkedListNode cursor) {
+  private void recursivePrintList(DNode cursor) {
 
     if (cursor != null) {
 
@@ -100,15 +103,15 @@ public class SLL
     }
   }
 
-  private linkedListNode getLastNode() {
-    linkedListNode cursor = head;
+  private DNode getLastNode() {
+    DNode cursor = head;
     while (cursor.getNext() != null) {
       cursor = cursor.getNext();
     }
     return cursor;
   }
 
-  public linkedListNode getHead() {
+  public DNode getHead() {
     return head;
   }
 }
