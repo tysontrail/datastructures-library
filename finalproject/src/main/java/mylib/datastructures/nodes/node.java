@@ -4,10 +4,7 @@ package mylib;
  * Hello world!
  *
  */
-public class BST 
+public class node 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+// this folder needs all necessary node classes so might have to add more
 }

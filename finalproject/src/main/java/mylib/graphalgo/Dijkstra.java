@@ -4,10 +4,7 @@ package mylib;
  * Hello world!
  *
  */
-public class BST 
+public class Dijkstra 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+    //also no clue what this is yolo
 }

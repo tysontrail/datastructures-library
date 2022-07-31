@@ -4,7 +4,9 @@ package mylib;
  * Hello world!
  *
  */
-public class BST 
+public class DLL
 {
-//BST
+    
+//doubly linked lists
+
 }

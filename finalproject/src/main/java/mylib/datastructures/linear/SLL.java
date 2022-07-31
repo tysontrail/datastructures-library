@@ -4,7 +4,7 @@ package mylib;
  * Hello world!
  *
  */
-public class BST 
+public class SLL
 {
-//BST
+//singly linked lists
 }

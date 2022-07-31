@@ -4,7 +4,7 @@ package mylib;
  * Hello world!
  *
  */
-public class BST 
+public class CSLL 
 {
-//BST
+//circular linked lists
 }

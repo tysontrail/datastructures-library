@@ -4,10 +4,7 @@ package mylib;
  * Hello world!
  *
  */
-public class App 
+public class BFS 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+// idk what bfs even is
 }
