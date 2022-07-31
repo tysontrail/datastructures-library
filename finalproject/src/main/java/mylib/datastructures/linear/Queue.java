@@ -1,3 +1,4 @@
+// test comment
 package mylib;
 
 /** Hello world! */
