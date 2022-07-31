@@ -9,6 +9,7 @@ public class SLL
 {
     private DNode head;
     private int size;
+    private boolean isSorted;
 
     public SLL() {
         head = null;
@@ -29,6 +30,9 @@ public class SLL
         head = node;
         }
         size++;
+
+        //tranverse through list and check if it is sorted or not - maybe this flag should only switch off for sortedinsert
+        isSorted = false;
     }
 
     public void insertTail(DNode node) {
@@ -40,6 +44,7 @@ public class SLL
           getLastNode().setNext(node);
         }
         size++;
+        isSorted = false;
     }
 
     public void insert(DNode node, int position) {
@@ -50,16 +55,42 @@ public class SLL
             node.setNext(getNode(position).getNext());
             getNode(position).setNext(node);
         }
+        size++;
+        isSorted = false;
     }
 
-  public DNode removeEndElement() {
-    DNode current = head;
-    DNode temp = null;
+    public void sortedInsert(DNode node) {
+
+		DNode current = head;
+        if(isSorted = false) {
+            //traverse through entire list and see if every current is less than current.getNext()
+            //call sort function
+        }
+        else {
+		    if(head.getData() > node.getData()) {
+			    node.setNext(head);
+			    head = node;
+		    }
+		    else {
+			    current = head;
+			    while(current.getNext() != null && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
+				    current = current.getNext(); 
+			    }
+			    node.setNext(current.getNext());
+			    current.setNext(node);
+			}
+        }
+	}
+
+    //sort function - after it's run set isSorted to true
+    public DNode removeEndElement() {
+        DNode current = head;
+        DNode temp = null;
     while (current != null) {
-      current = current.getNext();
-      if (current.getNext().getNext() == null) {
-        temp = current.getNext();
-        current.setNext(null);
+        current = current.getNext();
+        if (current.getNext().getNext() == null) {
+            temp = current.getNext();
+            current.setNext(null);
         return temp;
       }
     }
