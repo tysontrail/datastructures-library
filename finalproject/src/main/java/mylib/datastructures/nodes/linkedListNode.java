@@ -1,23 +1,20 @@
 package mylib;
 
-/**
- * Hello world!
- *
- */
+
 public class linkedListNode
 {
-    private Node next;
+    private linkedListNode next;
     
     //Constructor
-    public Node() {
-        setNext(null);
+    public linkedListNode(linkedListNode next) {
+        this.next = next;
     }
 
-    public Node getNext() {
+    public linkedListNode getNext() {
         return next;
     }
 
-    public void setNext(Node next) {
+    public void setNext(linkedListNode next) {
         this.next = next;
     }   
 }
