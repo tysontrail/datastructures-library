@@ -1,22 +1,22 @@
 package mylib;
 
 
-public class linkedListNode
+public class DNode
 {
-    private linkedListNode next;
+    private DNode next;
     private int data;
     
     //Constructor
-    public linkedListNode(int data) {
+    public DNode(int data) {
         setNext(null);
         setData(data);
     }
 
-    public linkedListNode getNext() {
+    public DNode getNext() {
         return next;
     }
 
-    public void setNext(linkedListNode next) {
+    public void setNext(DNode next) {
         this.next = next;
     }   
 
