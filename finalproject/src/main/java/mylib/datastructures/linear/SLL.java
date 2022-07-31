@@ -50,7 +50,6 @@ public class SLL
             node.setNext(getNode(position).getNext());
             getNode(position).setNext(node);
         }
-
     }
 
   public DNode removeEndElement() {

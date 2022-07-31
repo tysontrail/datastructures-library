@@ -4,7 +4,7 @@ package mylib;
  * Hello world!
  *
  */
-public class App 
+public class kApp 
 {
     public static void main( String[] args )
     {
