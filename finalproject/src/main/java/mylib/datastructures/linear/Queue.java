@@ -1,10 +1,6 @@
 package mylib;
 
-/**
- * Hello world!
- *
- */
-public class Queue
-{
-//queue
+/** Hello world! */
+public class Queue {
+  // queue
 }
