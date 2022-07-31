@@ -1,7 +1,10 @@
-package com.example;
+package mylib;
 
-
-public class singlyLL
+/**
+ * Hello world!
+ *
+ */
+public class BST 
 {
     public static void main( String[] args )
     {
