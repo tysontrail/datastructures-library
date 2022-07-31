@@ -12,16 +12,46 @@ public class SLL
 
     public SLL() {
         head = null;
+        size = 0;
     }
 
     public SLL(DNode head) {
-
+        this.head = head;
+        size = 0;
     }
 
+    public void insertHead(DNode node) {
+        if (head == null) {
+            head = node;
+        } 
+        else {
+        node.setNext(head);
+        head = node;
+        }
+        size++;
+    }
 
-  // public void insertionSort() {}
+    public void insertTail(DNode node) {
 
-  // public void insertInOrder(linkedListNode node) {}
+        if (head == null) {
+          head = node;
+        } 
+        else {
+          getLastNode().setNext(node);
+        }
+        size++;
+    }
+
+    public void insert(DNode node, int position) {
+        if(head == null) {
+            head = node;
+        }
+        else {
+            node.setNext(getNode(position).getNext());
+            getNode(position).setNext(node);
+        }
+
+    }
 
   public DNode removeEndElement() {
     DNode current = head;
@@ -64,24 +94,6 @@ public class SLL
     return temp;
   }
 
-  public void insertToEndOfList(DNode node) {
-
-    if (head == null) {
-      head = node;
-    } else {
-      getLastNode().setNext(node);
-    }
-  }
-
-  public void insertToFrontOfList(DNode node) {
-    if (head == null) {
-      head = node;
-    } else {
-      node.setNext(head);
-      head = node;
-    }
-  }
-
   public void recursivePrintList() {
     recursivePrintList(head);
   }
@@ -107,6 +119,16 @@ public class SLL
     DNode cursor = head;
     while (cursor.getNext() != null) {
       cursor = cursor.getNext();
+    }
+    return cursor;
+  }
+
+  private DNode getNode(int position) {
+    DNode cursor = head;
+    int count = 0;
+    while(count != position - 1) {
+        cursor = cursor.getNext();
+        count++;
     }
     return cursor;
   }
