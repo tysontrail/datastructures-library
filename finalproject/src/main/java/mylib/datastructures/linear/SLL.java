@@ -5,7 +5,7 @@ package mylib;
  *
  */
 
- //THIS IS MY COMMENT
+//This is my new comment
 public class SLL
 {
     private linkedListNode head;
