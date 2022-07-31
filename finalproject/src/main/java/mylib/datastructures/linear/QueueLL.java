@@ -2,6 +2,6 @@
 package mylib;
 
 /** Hello world! */
-public class Queue {
+public class QueueLL {
   // queue
 }

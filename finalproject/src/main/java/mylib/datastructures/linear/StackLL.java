@@ -4,7 +4,7 @@ package mylib;
  * Hello world!
  *
  */
-public class Stack 
+public class StackLL 
 {
 //stack
 }

@@ -8,10 +8,9 @@ package mylib;
 public class SLL
 {
     private linkedListNode head;
-    private linkedListNode next;
-    private linkedListNode current;
-    private linkedListNode temp;
-    private linkedListNode prev;
+    // private linkedListNode next;
+    // private linkedListNode temp;
+    // private linkedListNode prev;
 
     public SLL() {
         head = null;
@@ -22,7 +21,8 @@ public class SLL
   // public void insertInOrder(linkedListNode node) {}
 
   public linkedListNode removeEndElement() {
-    current = head;
+    linkedListNode current = head;
+    linkedListNode temp = null;
     while (current != null) {
       current = current.getNext();
       if (current.getNext().getNext() == null) {
@@ -41,7 +41,7 @@ public class SLL
   }
 
   public linkedListNode removeElement(int id) {
-    current = head;
+    linkedListNode current = head;
     // If the id given is the first element
     if (head.getId() == id) {
       return removeFirstElement();
