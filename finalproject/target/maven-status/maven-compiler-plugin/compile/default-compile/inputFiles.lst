@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/tApp.java
 /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/kApp.java
 /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/graphalgo/BFS.java
@@ -14,3 +15,21 @@
 /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/CDLL.java
 /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/nodes/DNode.java
 /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/DLL.java
+=======
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/tApp.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/kApp.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/graphalgo/BFS.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/heap/VBH.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/graphalgo/DFS.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/nodes/TNode.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/DLL.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/SLL.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/QueueLL.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/CSLL.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/trees/BST.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/trees/AVL.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/nodes/DNode.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/CDLL.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/Stack.java
+/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/graphalgo/Dijkstra.java
+>>>>>>> 62661698fe87478e80edb804d92b3a004ea57594
