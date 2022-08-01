@@ -31,7 +31,7 @@ public class BST {
 
   // Setter and getter for root
   public TNode getRoot() {
-    return root;
+    return this.root;
   }
 
   public void setRoot(TNode root) {
@@ -47,7 +47,7 @@ public class BST {
     // Search through tree
     while (current != null) {
       parent = current;
-      if (current.getStudent().compareTo(node.getStudent()) > 0) {
+      if (current.getData() > node.getData()) {
         // If node to insert is lower than current, move current left
         current = current.getLeft();
       } else {
@@ -59,7 +59,7 @@ public class BST {
     // If root is null, tree is empty and node is inserted as root
     if (getRoot() == null) {
       setRoot(node);
-    } else if (parent.getStudent().compareTo(node.getStudent()) > 0) {
+    } else if (parent.getData() > node.getData()) {
       // If node to insert is lower, insert to the left
       parent.setLeft(node);
       node.setParent(parent);
@@ -73,8 +73,7 @@ public class BST {
   // Insert(int val): creates a new node with data val to be inserted into the tree
   public void insert(int val) {
 
-    //
-    TNode nodeToInsert = new TNode(val);
+    TNode nodeToInsert = new TNode(val, 0, null, null, null);
 
     // Set pointer to root node
     TNode current = getRoot(), parent = null;
@@ -82,7 +81,7 @@ public class BST {
     // Search through tree
     while (current != null) {
       parent = current;
-      if (current.getStudent().compareTo(nodeToInsert.getStudent()) > 0) {
+      if (current.getData() > nodeToInsert.getData()) {
         // If node to insert is lower than current, move current left
         current = current.getLeft();
       } else {
@@ -94,7 +93,7 @@ public class BST {
     // If root is null, tree is empty and node is inserted as root
     if (getRoot() == null) {
       setRoot(nodeToInsert);
-    } else if (parent.getStudent().compareTo(nodeToInsert.getStudent()) > 0) {
+    } else if (parent.getData() > nodeToInsert.getData()) {
       // If node to insert is lower, insert to the left
       parent.setLeft(nodeToInsert);
       nodeToInsert.setParent(parent);
@@ -108,8 +107,9 @@ public class BST {
   // Finds the node equivalent to the node_to_delete in the tree and removes it.
   // If an object of that value is not found then it prints to the user that the
   // object was not found
-  public void delete(TNode nodeToDelete) {
+  public void delete(int val) {
 
+    TNode nodeToDelete = new TNode()
     TNode current = getRoot();
 
     // Tree is empty; node to delete not found
@@ -121,9 +121,9 @@ public class BST {
     // Search through tree until node to delete and parent are found
     while (current != null) {
 
-      if (current.getStudent().compareTo(nodeToDelete.getStudent()) == 0) {
+      if (current.getData() == nodeToDelete.getData()) {
         break;
-      } else if (current.getStudent().compareTo(nodeToDelete.getStudent()) > 0) {
+      } else if (current.getData() > nodeToDelete.getData()) {
         // If node to delete is lower than current, move current left
         current = current.getLeft();
       } else {
@@ -133,7 +133,7 @@ public class BST {
 
       // Node to delete not found, return
       if (current == null) {
-        System.out.println("Object to delete not found.");
+        System.out.println("Object to delete not found in BST tree.");
         return;
       }
     }
@@ -143,8 +143,7 @@ public class BST {
       // If current isn't root node
       if (current != getRoot())
         if (current.getParent().getLeft() != null
-            && current.getParent().getLeft().getStudent().compareTo(nodeToDelete.getStudent())
-                == 0) {
+            && current.getParent().getLeft().getData() == nodeToDelete.getData()) {
           // If node to delete is left pointer from parent, set to null
           current.getParent().setLeft(null);
         } else {
@@ -170,7 +169,7 @@ public class BST {
 
       // If node to delete right pointer is smallest
       if (smallest.getParent().getRight() != null
-          && smallest.getParent().getRight().getStudent().compareTo(smallest.getStudent()) == 0) {
+          && smallest.getParent().getRight().getData() == smallest.getData()) {
 
         // Set smallest parent node right pointer to smallest right child
         smallest.getParent().setRight(smallest.getRight());
@@ -182,7 +181,7 @@ public class BST {
         smallest.getParent().setLeft(smallest.getRight());
       }
       // Copy smallest node Student data to node to delete
-      current.setStudent(smallest.getStudent());
+      current.setStudent(smallest.getData());
 
       // Set smallest right node parent pointer to smallest parent if it exists
       if (smallest.getRight() != null) {
@@ -221,43 +220,11 @@ public class BST {
 
   // Prints the tree content in order to the terminal using the print function
   // inside each node
-  public void print(TNode current) {
+  public void printInOrder(TNode current) {
     if (current != null) {
       print(current.getLeft());
       current.print();
       print(current.getRight());
-    }
-  }
-
-  // Writes the tree content in ascending to a file with the string output1 as
-  // its name. make sure the file is well formatted by using fixed-width based
-  // on the character limits provided in the first format table in the exercise
-  public void printInOrderToFile(TNode root_node, String output1) {
-    try {
-      // Create new print write object to write to output1
-      PrintWriter writer = new PrintWriter(output1);
-
-      // Create new current node from root
-      TNode current = root_node;
-
-      // Call recursive write function with passed current node and writer object
-      write(current, writer);
-
-      // Close writer object
-      writer.close();
-
-    } catch (FileNotFoundException e) {
-      System.out.println("File not found exception output1.");
-      System.exit(0);
-    }
-  }
-
-  // Recursively writes the tree content in ascending order left to right
-  public void write(TNode current, PrintWriter w) {
-    if (current != null) {
-      write(current.getLeft(), w);
-      w.println(current);
-      write(current.getRight(), w);
     }
   }
 
@@ -266,21 +233,17 @@ public class BST {
   // using fixed-width based on the character limits provided in the first format
   // table in the exercise, and you must include the letter “I” at the start of
   // each line
-  public void printBreadthToFile(TNode root_node, String output2) {
+  public void printBF() {
     // If tree is empty
-    if (root_node == null) {
+    if (getRoot() == null) {
       return;
-    }
-
-    try {
-      // Create new print write object to write to output1
-      PrintWriter writer = new PrintWriter(output2);
+    } else {
 
       // Create a queue
-      Queue<TNode> queue = new LinkedList<TNode>();
+        Queue<TNode> queue = new LinkedList<TNode>();
 
       // Enqueu root node
-      queue.add(root_node);
+      queue.add(getRoot());
 
       while (queue.size() > 0) {
         // Remove node from queue
@@ -296,11 +259,6 @@ public class BST {
           queue.add(studentBNode.getRight());
         }
       }
-      // Close writer object
-      writer.close();
-
-    } catch (FileNotFoundException e) {
-      System.out.println("File not found exception output2.");
     }
   }
 }

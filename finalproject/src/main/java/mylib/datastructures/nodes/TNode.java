@@ -9,6 +9,8 @@ public class TNode {
   private int balance;
 
   public TNode() {
+    setData(0);
+    setBalance(0);
     setParent(null);
     setLeft(null);
     setRight(null);
