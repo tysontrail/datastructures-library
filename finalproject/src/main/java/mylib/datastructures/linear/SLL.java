@@ -1,4 +1,3 @@
-// Test comment
 package mylib;
 
 /** Singly linked list class */
