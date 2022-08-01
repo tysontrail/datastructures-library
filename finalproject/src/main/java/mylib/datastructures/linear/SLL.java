@@ -3,24 +3,29 @@ package mylib;
 
 /** Singly linked list class */
 
-//HELLO TESTING THIS IS MY LATEST COMMENT
-
 public class SLL
 {
     private DNode head;
     private int size;
-    private boolean isSorted;
 
+    //Default constructor with no arguments that creates a null head object
     public SLL() {
-        head = null;
-        size = 0;
+        this.head = null;
+        this.size = 0;
     }
 
+    //Overload constructor with a Node object argument to use as head
     public SLL(DNode head) {
         this.head = head;
-        size = 0;
+        this.size = 0;
     }
 
+    //size of list getter
+    public DNode getSize() {
+        return size;
+    }
+
+    //Inserts node object at head of the list
     public void insertHead(DNode node) {
         if (head == null) {
             head = node;
@@ -31,10 +36,9 @@ public class SLL
         }
         size++;
 
-        //tranverse through list and check if it is sorted or not - maybe this flag should only switch off for sortedinsert
-        isSorted = false;
     }
 
+    //Inserts node object at the tail of the list
     public void insertTail(DNode node) {
 
         if (head == null) {
@@ -44,9 +48,9 @@ public class SLL
           getLastNode().setNext(node);
         }
         size++;
-        isSorted = false;
     }
 
+    //Inserts node object in the specified position
     public void insert(DNode node, int position) {
         if(head == null) {
             head = node;
@@ -56,114 +60,131 @@ public class SLL
             getNode(position).setNext(node);
         }
         size++;
-        isSorted = false;
     }
 
+    //Inserts node object in its proper position in a sorted list
     public void sortedInsert(DNode node) {
 
 		DNode current = head;
-        if(isSorted = false) {
-            //traverse through entire list and see if every current is less than current.getNext()
-            //call sort function
+        while(current != null) {
+            if(current.getData() < current.getNext().getData()) {
+            current = current.getNext();
+            }
+            else {
+                //call sort function
+            }
         }
-        else {
-		    if(head.getData() > node.getData()) {
-			    node.setNext(head);
-			    head = node;
-		    }
-		    else {
-			    current = head;
-			    while(current.getNext() != null && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
-				    current = current.getNext(); 
-			    }
-			    node.setNext(current.getNext());
-			    current.setNext(node);
-			}
-        }
-	}
 
-    //sort function - after it's run set isSorted to true
-    public DNode removeEndElement() {
+		if(head.getData() > node.getData()) {
+			node.setNext(head);
+			head = node;
+		}
+		else {
+			current = head;
+			while(current.getNext() != null && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
+				current = current.getNext(); 
+			}
+			node.setNext(current.getNext());
+			current.setNext(node);
+		}
+        size++;
+    }
+
+    //Looks up node in the list
+    public DNode search(int data) {
+		DNode current = head;
+		while(current != null && current.getData() != data) {
+			current = current.getNext();
+		}
+		if(current != null && current.getData() == data) {
+			DNode match = new DNode(current.getData());
+			return match;
+		}
+		else {
+			return null;
+		}
+	}	
+
+    //Delete head node
+    public DNode deleteHead() {
+        DNode temp = head;
+        head = head.getNext();
+        size--;
+        return temp;
+    }
+
+    //Delete tail node
+    public DNode deleteTail() {
         DNode current = head;
         DNode temp = null;
-    while (current != null) {
-        current = current.getNext();
-        if (current.getNext().getNext() == null) {
-            temp = current.getNext();
-            current.setNext(null);
+        size--;
+        while (current != null) {
+            current = current.getNext();
+            if (current.getNext().getNext() == null) {
+                temp = current.getNext();
+                current.setNext(null);
+            return temp;
+            }
+        }
         return temp;
-      }
     }
-    return temp;
-  }
 
-  public DNode removeFirstElement() {
-    temp = head;
-    head = head.getNext();
-    return temp;
-  }
+    //Deletes the node if found in the list
+    public DNode delete(int data) {
+        DNode current = head;
+        DNode temp = null;
+        size--;
+        // If the id given is the first element
+        if (head.getData() == data) {
+            return deleteHead();
+        }
+        while (current != null) {
+            current = current.getNext();
+            // If the id given is the last element
+            if (current.getNext() == null && current.getData() == data) {
+                return deleteTail();
+            }
 
-  public DNode removeElement(int id) {
-    DNode current = head;
-    // If the id given is the first element
-    if (head.getId() == id) {
-      return removeFirstElement();
+            if (current.getNext().getData() == data) {
+                temp = current.getNext();
+                current.setNext(current.getNext().getNext());
+                return temp;
+            }
+        }
+        return null;
     }
-    while (current != null) {
-      current = current.getNext();
-      // If the id given is the last element
-      if (current.getNext() == null && current.getId() == id) {
-        return removeEndElement();
-      }
-      if (current.getNext().getId() == id) {
-        temp = current.getNext();
-        current.setNext(current.getNext().getNext());
-        return temp;
-      }
+
+    public void clear() {
+        head = null;
     }
-    return temp;
-  }
 
-  public void recursivePrintList() {
-    recursivePrintList(head);
-  }
-
-  private void recursivePrintList(DNode cursor) {
-
-    if (cursor != null) {
-
-      System.out.println(cursor);
-      recursivePrintList(cursor.getNext());
+    public void printList() {
+        DNode current = head;
+        while (current != null) {
+            System.out.println(current);
+            current = current.getNext();
+        }
     }
-  }
 
-  public void printList() {
-    Student cursor = head;
-    while (cursor != null) {
-      System.out.println(cursor);
-      cursor = cursor.getNext();
+    private DNode getLastNode() {
+        DNode current = head;
+        while (current.getNext() != null) {
+            current = current.getNext();
+        }
+        return current;
     }
-  }
 
-  private DNode getLastNode() {
-    DNode cursor = head;
-    while (cursor.getNext() != null) {
-      cursor = cursor.getNext();
+    private DNode getNode(int position) {
+        DNode current = head;
+        int count = 0;
+        while(count != position - 1) {
+            current = current.getNext();
+            count++;
+        }
+        return current;
     }
-    return cursor;
-  }
 
-  private DNode getNode(int position) {
-    DNode cursor = head;
-    int count = 0;
-    while(count != position - 1) {
-        cursor = cursor.getNext();
-        count++;
+    public DNode getHead() {
+        return head;
     }
-    return cursor;
-  }
-
-  public DNode getHead() {
-    return head;
-  }
 }
