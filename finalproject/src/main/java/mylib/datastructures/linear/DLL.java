@@ -60,14 +60,17 @@ public class DLL extends SLL
     public void insert(DNode node, int position) {
         if(head == null) {
             head = node;
+            tail = node;
         }
         else if(getNode(position) == null) {
-            getNode(position).setNext(node);
-            node.setPrev(getNode(position));
+            insertTail(node);
+        }
+        else if(position == 0) {
+            insertHead(node);
         }
         else {
-            DNode nodeBefore = getNode(position);
-            DNode nodeAfter = getNode(position).getNext();
+            DNode nodeBefore = getNode(position).getPrev();
+            DNode nodeAfter = getNode(position);
             node.setNext(nodeAfter);
             nodeBefore.setNext(node);
             nodeAfter.setPrev(node);
@@ -139,6 +142,42 @@ public class DLL extends SLL
         return tail;
     }
 
+    //Deletes the node if found in the list
+    @Override
+    public DNode delete(int data) {
+        DNode current = head;
+        DNode tempNext = null;
+        size--;
+        // If the id given is the first element
+        if (head.getData() == data) {
+            return deleteHead();
+        }
+        else if(tail.getData() == data) {
+            return deleteTail();
+        }
+        while (current != null) {
+            if (current.getNext().getData() == data) {
+                tempNext = current.getNext();
+                current.setNext(current.getNext().getNext());
+                current.getNext().setPrev(current);
+                return tempNext;
+            }
+            current = current.getNext();
+        }
+        return null;
+    }
+
+    @Override
+    public void print() {
+        DNode current = head;
+        System.out.println("List size: " +size);
+        System.out.println("Sorted: "+isSorted());
+
+        while (current != null) {
+            System.out.println(current);
+            current = current.getNext();
+        }
+    }
 
 
 }

@@ -55,6 +55,12 @@ public class SLL
         if(head == null) {
             head = node;
         }
+        else if(getNode(position) == null) {
+            insertTail(node);
+        }
+        else if(position == 0) {
+            insertHead(node);
+        }
         else {
             node.setNext(getNode(position).getNext());
             getNode(position).setNext(node);
@@ -223,7 +229,7 @@ public class SLL
     public DNode getNode(int position) {
         DNode current = head;
         int count = 0;
-        while(count < position - 1) {
+        while(count < position) {
             current = current.getNext();
             count++;
         }
