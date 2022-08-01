@@ -220,9 +220,9 @@ public class BST {
   // inside each node
   public void printInOrder(TNode current) {
     if (current != null) {
-      print(current.getLeft());
+      printInOrder(current.getLeft());
       current.print();
-      print(current.getRight());
+      printInOrder(current.getRight());
     }
   }
 
@@ -244,7 +244,7 @@ public class BST {
         // Remove node from queue
         TNode studentBNode = queue.remove();
         // Print removed node
-        writer.println("I" + studentBNode.toString());
+        System.out.println(studentBNode.toString());
         if (studentBNode.getLeft() != null) {
           // Enqueue left child
           queue.add(studentBNode.getLeft());
