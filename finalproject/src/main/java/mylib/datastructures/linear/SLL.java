@@ -20,7 +20,7 @@ public class SLL
     }
 
     //size of list getter
-    public DNode getSize() {
+    public int getSize() {
         return size;
     }
 
