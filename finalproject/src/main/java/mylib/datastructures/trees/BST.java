@@ -1,7 +1,5 @@
 package mylib;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -109,7 +107,7 @@ public class BST {
   // object was not found
   public void delete(int val) {
 
-    TNode nodeToDelete = new TNode()
+    TNode nodeToDelete = new TNode();
     TNode current = getRoot();
 
     // Tree is empty; node to delete not found
@@ -181,7 +179,7 @@ public class BST {
         smallest.getParent().setLeft(smallest.getRight());
       }
       // Copy smallest node Student data to node to delete
-      current.setStudent(smallest.getData());
+      current.setData(smallest.getData());
 
       // Set smallest right node parent pointer to smallest parent if it exists
       if (smallest.getRight() != null) {
@@ -228,11 +226,8 @@ public class BST {
     }
   }
 
-  // Writes the tree content using breadth-first left-right traversal to a file
-  // with the string output2 as its name. make sure the file is well formatted by
-  // using fixed-width based on the character limits provided in the first format
-  // table in the exercise, and you must include the letter “I” at the start of
-  // each line
+  // prints the content of the tree in Breadth-First order, each level of the
+  // tree will be printed on a separate line
   public void printBF() {
     // If tree is empty
     if (getRoot() == null) {
@@ -240,7 +235,7 @@ public class BST {
     } else {
 
       // Create a queue
-        Queue<TNode> queue = new LinkedList<TNode>();
+      Queue<TNode> queue = new LinkedList<TNode>();
 
       // Enqueu root node
       queue.add(getRoot());
