@@ -99,8 +99,9 @@ public class SLL
     }
 
     public void sort() {
+
         DNode current = head;
-        sorted = current;
+        sorted = null;
         while(current != null) {
             DNode temp = current.getNext();
             sortedInserted(current);
@@ -192,11 +193,13 @@ public class SLL
         return null;
     }
 
+    //Deletes the whole list
     public void clear() {
         head = null;
     }
 
-    public void printList() {
+    //Prints the list information on the screen - list length, sorted status, list content
+    public void print() {
         DNode current = head;
         System.out.println("List size: " +size);
         System.out.println("Sorted: "+isSorted());
@@ -207,7 +210,8 @@ public class SLL
         }
     }
 
-    private DNode getLastNode() {
+    //
+    public DNode getLastNode() {
         DNode current = head;
         while (current.getNext() != null) {
             current = current.getNext();
@@ -215,10 +219,11 @@ public class SLL
         return current;
     }
 
-    private DNode getNode(int position) {
+    //get node at specific index
+    public DNode getNode(int position) {
         DNode current = head;
         int count = 0;
-        while(count != position - 1) {
+        while(count < position - 1) {
             current = current.getNext();
             count++;
         }
