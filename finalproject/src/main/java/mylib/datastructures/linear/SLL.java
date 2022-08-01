@@ -6,6 +6,7 @@ public class SLL
 {
     private DNode head;
     private int size;
+    private DNode sorted;
 
     //Default constructor with no arguments that creates a null head object
     public SLL() {
@@ -61,20 +62,28 @@ public class SLL
         size++;
     }
 
+    //finish is sorted
+    public boolean isSorted() {
+        DNode current = head;
+        if(head == null) {
+            return true;
+        }
+        for(current = head; current.getNext() != null; current = current.getNext()) {
+            if(current.getData() > current.getNext().getData()) {
+                return false;
+            }
+        }
+        return true;
+    }
     //Inserts node object in its proper position in a sorted list
     public void sortedInsert(DNode node) {
 
 		DNode current = head;
-        while(current != null) {
-            if(current.getData() < current.getNext().getData()) {
-            current = current.getNext();
-            }
-            else {
-                //call sort function
-            }
+        if(isSorted() == false) {
+            sort();
         }
 
-		if(head.getData() > node.getData()) {
+		if(head == null || head.getData() > node.getData()) {
 			node.setNext(head);
 			head = node;
 		}
@@ -87,6 +96,36 @@ public class SLL
 			current.setNext(node);
 		}
         size++;
+    }
+
+    public void sort() {
+        DNode current = head;
+        sorted = current;
+        while(current != null) {
+            DNode temp = current.getNext();
+            sortedInserted(current);
+            current = temp;
+            //System.out.println(current);
+            
+        }
+        head = sorted;
+        //System.out.println(head);
+    }
+
+    public void sortedInserted(DNode node) {
+		if(sorted == null || sorted.getData() > node.getData()) {
+			node.setNext(sorted);
+			sorted = node;
+		}
+        else {
+			DNode current = sorted;
+			while(current.getNext() != null && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
+				current = current.getNext(); 
+			}
+			node.setNext(current.getNext());
+			current.setNext(node);
+		}
+
     }
 
     //Looks up node in the list
@@ -159,6 +198,9 @@ public class SLL
 
     public void printList() {
         DNode current = head;
+        System.out.println("List size: " +size);
+        System.out.println("Sorted: "+isSorted());
+
         while (current != null) {
             System.out.println(current);
             current = current.getNext();

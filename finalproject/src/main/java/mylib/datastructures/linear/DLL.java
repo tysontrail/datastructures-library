@@ -1,12 +1,16 @@
 package mylib;
 
-/**
- * Hello world!
- *
- */
-public class DLL
+
+public class DLL extends SLL
 {
     
-//doubly linked lists
+private DNode head;
+private DNode tail;
+
+public DLL() {
+    this.head = null;
+    this.tail = null;
+    size = 0;
+}
 
 }
