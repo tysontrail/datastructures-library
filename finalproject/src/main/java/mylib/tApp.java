@@ -1,5 +1,7 @@
 package mylib;
 
+import mylib.datastructures.trees.BST;
+
 public class tApp {
   public static void main(String[] args) {
 
