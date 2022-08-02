@@ -270,7 +270,7 @@ public class BST {
     while (current != null) {
 
       if (current.getData() == val) {
-        break;
+        return current;
       } else if (current.getData() > val) {
         // Node is lower than current, move current left
         current = current.getLeft();
@@ -278,16 +278,9 @@ public class BST {
         // Node is higher than current, move current right
         current = current.getRight();
       }
-
-      // Node with val not found, return
-      if (current == null) {
-        System.out.println("Object to delete not found in BST tree.");
-        return null;
-      } else {
-        // Return node with val
-        return current;
-      }
     }
+
+    System.out.println("Object to delete not found in BST tree.");
     return null;
   }
 }
