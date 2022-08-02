@@ -14,7 +14,7 @@ public class tApp {
     // Create binary tree object
     BST bst = new BST();
 
-    // Insert array into BST
+    //Insert array into BST
     for (int i; i < arr.length; i++) {
       bst.insert(arr[i]);
     }
