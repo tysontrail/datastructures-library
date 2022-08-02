@@ -20,7 +20,7 @@ public class CSLL extends SLL
     }
 
     public int getSize() {
-        return super.getSize();
+        return size;
     }
 
     public void setSize(int size) {
@@ -28,15 +28,16 @@ public class CSLL extends SLL
     }
 
     public DNode getTail() {
-        if(getHead() == null) {
-            return tail = head;
-        }
-        DNode current = getHead();
-        int count = 0;
-        while(count < getSize()) {
-            current = current.getNext();
-        }
-        tail = current;
+        // if(getHead() == null) {
+        //     return tail = head;
+        // }
+        // DNode current = getHead();
+        // int count = 0;
+        // while(count < getSize()) {
+        //     current = current.getNext();
+        //     count++;
+        // }
+        // tail = current;
         return tail;
     }
 
@@ -48,25 +49,45 @@ public class CSLL extends SLL
     public CSLL() {
         setHead(null);
         setTail(getHead());
-        setSize(super.getSize());
+        setSize(0);
     }
 
     //INSERTION METHODS
     @Override
     public void insertHead(DNode node) {
-        super.insertHead();
-        getTail.setNext(getHead());
+        //System.out.println(getTail());
+        super.insertHead(node);
+        if(getTail() == null) {
+            setTail(getHead());
+        }
+        else {
+            getTail().setNext(getHead());
+        }
+
     }
 
     @Override
     public void insertTail(DNode node) {
-        super.insertTail();
+        super.insertTail(node);
         node.setNext(getHead());
+    }
+
+    @Override
+    public DNode getLastNode() {
+        return getTail();
     }
 
     //Insert shouldn't have to be extended because inserting in the middle will 
     //should not make any difference. & since insert head and insert tail are called in super class and they are overridden
     //it should override to set the new head or new tail back to looop around boiiii
 
+    @Override
+    public void print() {
+        for(int i = 0; i < getSize(); i++) {
+            System.out.println(i);
+            super.print();
+            i++;
+        }
+    }
     
 }
