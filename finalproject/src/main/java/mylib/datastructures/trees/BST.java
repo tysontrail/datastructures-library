@@ -107,7 +107,6 @@ public class BST {
   // object was not found
   public void delete(int val) {
 
-    TNode nodeToDelete = new TNode();
     TNode current = getRoot();
 
     // Tree is empty; node to delete not found
@@ -119,9 +118,9 @@ public class BST {
     // Search through tree until node to delete and parent are found
     while (current != null) {
 
-      if (current.getData() == nodeToDelete.getData()) {
+      if (current.getData() == val) {
         break;
-      } else if (current.getData() > nodeToDelete.getData()) {
+      } else if (current.getData() > val) {
         // If node to delete is lower than current, move current left
         current = current.getLeft();
       } else {
@@ -141,7 +140,7 @@ public class BST {
       // If current isn't root node
       if (current != getRoot())
         if (current.getParent().getLeft() != null
-            && current.getParent().getLeft().getData() == nodeToDelete.getData()) {
+            && current.getParent().getLeft().getData() == val) {
           // If node to delete is left pointer from parent, set to null
           current.getParent().setLeft(null);
         } else {
@@ -253,6 +252,40 @@ public class BST {
           // Enqueue right child
           queue.add(studentBNode.getRight());
         }
+      }
+    }
+  }
+
+  public TNode search(int val) {
+
+    TNode current = getRoot();
+
+    // Tree is empty; node with val not found
+    if (getRoot() == null) {
+      System.out.println("Object  not found, tree is empty.");
+      return;
+    }
+
+    // Search through tree until node with val is found
+    while (current != null) {
+
+      if (current.getData() == val) {
+        break;
+      } else if (current.getData() > val) {
+        // Node is lower than current, move current left
+        current = current.getLeft();
+      } else {
+        // Node is higher than current, move current right
+        current = current.getRight();
+      }
+
+      // Node with val not found, return
+      if (current == null) {
+        System.out.println("Object to delete not found in BST tree.");
+        return null;
+      } else {
+        // Return node with val
+        return current;
       }
     }
   }
