@@ -1,5 +1,6 @@
 package mylib;
 
+/** Doubly linked list class */
 
 public class DLL extends SLL
 {
@@ -64,9 +65,11 @@ public class DLL extends SLL
         }
         else if(getNode(position) == null) {
             insertTail(node);
+            size--;
         }
         else if(position == 0) {
             insertHead(node);
+            size--;
         }
         else {
             DNode nodeBefore = getNode(position).getPrev();

@@ -1,10 +1,10 @@
 package mylib;
 
 /**
- * Hello world!
+ * Circular Singly Linked Lists
  *
  */
-public class CSLL 
+public class CSLL extends SLL
 {
 //circular linked lists
 }

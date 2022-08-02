@@ -22,6 +22,11 @@ public class SLL
 
     //size of list getter
     public int getSize() {
+        DNode current = head;
+        while(current !=null ) {
+            current = current.getNext();
+            size++;
+        }
         return size;
     }
 
@@ -52,20 +57,23 @@ public class SLL
 
     //Inserts node object in the specified position
     public void insert(DNode node, int position) {
+        size++;
         if(head == null) {
             head = node;
         }
         else if(getNode(position) == null) {
             insertTail(node);
+            size--;
         }
         else if(position == 0) {
             insertHead(node);
+            size--;
         }
         else {
             node.setNext(getNode(position).getNext());
             getNode(position).setNext(node);
         }
-        size++;
+        
     }
 
     //finish is sorted
@@ -201,6 +209,7 @@ public class SLL
 
     //Deletes the whole list
     public void clear() {
+        size = 0;
         head = null;
     }
 
