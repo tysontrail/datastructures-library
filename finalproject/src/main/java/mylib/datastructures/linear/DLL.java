@@ -6,23 +6,18 @@ public class DLL extends SLL
 {
     private DNode head;
     private DNode tail;
-    private int size;
 
     public DLL() {
+        super();
         this.head = null;
         this.tail = null;
-        this.size = 0;
 }
 
     //Overload constructor with a Node object argument to use as head
     public DLL(DNode head, DNode tail) {
+        super();
         this.head = head;
         this.tail = tail;
-        this.size = 0;
-    }
-
-    public int getSize() {
-        return size;
     }
 
     public DNode search(int data) {
@@ -174,16 +169,16 @@ public class DLL extends SLL
         return null;
     }
 
-    public void print() {
-        DNode current = head;
-        System.out.println("List size: " +size);
-        System.out.println("Sorted: "+isSorted());
+    // public void print() {
+    //     DNode current = head;
+    //     System.out.println("List size: " +size);
+    //     System.out.println("Sorted: "+isSorted());
 
-        while (current != null) {
-            System.out.println(current);
-            current = current.getNext();
-        }
-    }
+    //     while (current != null) {
+    //         System.out.println(current);
+    //         current = current.getNext();
+    //     }
+    // }
 
 
 }
