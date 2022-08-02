@@ -68,6 +68,7 @@ public class kApp
         System.out.println("\nThe sorted list: ");
         dll.print();
 
+
         //Sorted insert test
         dll.sortedInsert(new DNode(11));
         System.out.println("\nSorted insert of value 11");
@@ -80,8 +81,13 @@ public class kApp
 
         //Delete method tests
         System.out.println("\nDelete method tests");
-        dll.delete(88);
+        System.out.println("\nDeleted Data 11");
+        dll.delete(11);
+        dll.print();
+        System.out.println("\nDeleted Tail");
         dll.deleteTail();
+        dll.print();
+        System.out.println("\nDeleted Head");
         dll.deleteHead();
         dll.print();
 
