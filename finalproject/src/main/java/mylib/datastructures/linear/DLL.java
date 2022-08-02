@@ -4,76 +4,95 @@ package mylib;
 
 public class DLL extends SLL
 {
+    //INSTANCE VARIABLES
     private DNode head;
     private DNode tail;
     private int size;
+    private DNode sorted;
 
-    public DLL() {
-        this.head = null;
-        this.tail = null;
-        this.size = 0;
-}
+    //GETTERS & SETTERS
+    public DNode getHead() {
+        return head;
+    }
 
-    //Overload constructor with a Node object argument to use as head
-    public DLL(DNode head, DNode tail) {
+    public void setHead(DNode head) {
         this.head = head;
+    }
+
+    public DNode getTail() {
+        return tail;
+    }
+
+    public void setTail(DNode tail) {
         this.tail = tail;
-        this.size = 0;
     }
 
     public int getSize() {
         return size;
     }
 
-    public DNode search(int data) {
-        return super.search(data);
+    public void setSize(int size) {
+        this.size = size;
     }
 
+    //CONSTRUCTORS
+    public DLL() {
+        setHead(null);
+        setTail(null);
+    }
+
+    //Overload constructor with a Node object argument to use as head
+    public DLL(DNode head, DNode tail) {
+        setHead(head);
+        setTail(tail);
+    }
+
+    //INSERTION METHODS
     //Inserts node object at head of the list
     @Override
     public void insertHead(DNode node) {
-        if (head == null) {
-            head = node;
-            tail = node;
+        if (getHead() == null) {
+            setHead(node);
+            setTail(node);
         } 
         else {
-            node.setNext(head);
-            head.setPrev(node);
-            head = node;
+            node.setNext(getHead());
+            getHead().setPrev(node);
+            setHead(node);
         }
-        size++;
+        setSize(getSize()+1);
     }
 
     //Inserts node object at the tail of the list
     @Override
     public void insertTail(DNode node) {
 
-        if (head == null) {
-            head = node;
-            tail = node;
+        if (getHead() == null) {
+            setHead(node);
+            setTail(node);
         } 
         else {
-            tail.setNext(node);
-            node.setPrev(tail);
-            tail = node;
+            getTail().setNext(node);
+            node.setPrev(getTail());
+            setTail(node);
         }
-        size++;
+        setSize(getSize()+1);
     }
 
     //Inserts node object in the specified position
     @Override
     public void insert(DNode node, int position) {
-        if(head == null) {
-            head = node;
-            tail = node;
+        if(getHead() == null) {
+            setHead(node);
+            setTail(node);
         }
         else if(getNode(position) == null) {
             insertTail(node);
-            size--;
+            setSize(getSize()-1);
         }
         else if(position == 0) {
             insertHead(node);
-            size--;
+            setSize(getSize()-1);
         }
         else {
             DNode nodeBefore = getNode(position).getPrev();
@@ -84,36 +103,24 @@ public class DLL extends SLL
             node.setPrev(nodeBefore);
 
         }
-        size++;
-    }
-
-    //get node at specific index
-    @Override
-    public DNode getNode(int position) {
-        DNode current = head;
-        int count = 0;
-        while(count < position) {
-            current = current.getNext();
-            count++;
-        }
-        return current;
+        setSize(getSize()+1);
     }
 
     //Inserts node object in its proper position in a sorted list
     @Override
     public void sortedInsert(DNode node) {
 
-        DNode current = head;
+        DNode current = getHead();
         if(isSorted() == false) {
             sort();
         }
     
-        if(head == null || head.getData() > node.getData()) {
-            node.setNext(head);
-            head = node;
+        if(getHead() == null || getHead().getData() > node.getData()) {
+            node.setNext(getHead());
+            setHead(node);
         }
         else {
-            current = head;
+            current = getHead();
             while(current.getNext() != null && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
                 current = current.getNext(); 
             }
@@ -127,39 +134,66 @@ public class DLL extends SLL
             current.setNext(node);
             
         }
-        size++;
+        setSize(getSize()+1);
     }
 
+    //SORT METHODS
+    @Override
+    public void sort() {
+        super.sort();
+        setTail(getLastNode());
+    }
+
+    @Override
+    public void sortedInserted(DNode node) {
+        if(getSorted() == null || getSorted().getData() > node.getData()) {
+			node.setNext(getSorted());
+            setSorted(node);
+		}
+        else {
+			DNode current = getSorted();
+			while(current.getNext() != null && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
+				current = current.getNext(); 
+			}
+			node.setNext(current.getNext());
+            current.getNext().setPrev(node);
+            node.setPrev(current);
+			current.setNext(node);
+		}
+    }
+
+    //DELETE METHODS
     //Delete head node
     @Override
     public DNode deleteHead() {
-        DNode temp = head;
-        head = head.getNext();
-        head.setPrev(null);
-        size--;
+        DNode temp = getHead();
+        setHead(getHead().getNext());
+        getHead().setPrev(null);
+        setSize(getSize()-1);
         return temp;
     }
 
     //Delete tail node
     @Override
     public DNode deleteTail() {
-        tail = tail.getPrev();
-        tail.setNext(null);
-        size--;
-        return tail;
+        setTail(getTail().getPrev());
+        getTail().setNext(null);
+        setSize(getSize()-1);
+        return getTail();
     }
 
     //Deletes the node if found in the list
     @Override
     public DNode delete(int data) {
-        DNode current = head;
+        DNode current = getHead();
         DNode tempNext = null;
-        size--;
+        setSize(getSize()-1);
         // If the id given is the first element
-        if (head.getData() == data) {
+        if (getHead().getData() == data) {
             return deleteHead();
         }
-        else if(tail.getData() == data) {
+        else if(getTail().getData() == data) {
+            System.out.println("tst");
             return deleteTail();
         }
         while (current != null) {
@@ -173,17 +207,4 @@ public class DLL extends SLL
         }
         return null;
     }
-
-    public void print() {
-        DNode current = head;
-        System.out.println("List size: " +size);
-        System.out.println("Sorted: "+isSorted());
-
-        while (current != null) {
-            System.out.println(current);
-            current = current.getNext();
-        }
-    }
-
-
 }
