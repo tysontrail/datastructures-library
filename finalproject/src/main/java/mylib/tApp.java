@@ -14,14 +14,14 @@ public class tApp {
     // Create binary tree object
     BST bst = new BST();
 
-    //Insert array into BST
-    for (int i; i < arr.length; i++) {
+    // Insert array into BST
+    for (int i = 0; i < arr.length; i++) {
       bst.insert(arr[i]);
     }
 
     // Print BST tree in order to terminal
     System.out.println("BST tree in order: ");
-    bst.print(bst.getRoot());
+    bst.printInOrder(bst.getRoot());
     System.out.println();
 
     // Print BST tree in breadth-first left-right traversal to file
