@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 mylib/kApp.class
 mylib/AVL.class
 mylib/DLL.class
@@ -5,6 +6,14 @@ mylib/tApp.class
 mylib/Dijkstra.class
 mylib/VBH.class
 mylib/CSLL.class
+=======
+mylib/DFS.class
+mylib/SLL.class
+mylib/kApp.class
+mylib/DNode.class
+mylib/tApp.class
+mylib/VBH.class
+>>>>>>> e8436c0d1d04990cbe3a1df70163b9eca4eb9ec5
 mylib/BFS.class
 mylib/TNode.class
 mylib/DFS.class

@@ -40,6 +40,6 @@ public class DNode
 
     @Override
     public String toString() {
-        return "Value:" + getData();
+        return "Value: " + getData();
     }
 }
