@@ -22,11 +22,6 @@ public class SLL
 
     //size of list getter
     public int getSize() {
-        DNode current = head;
-        while(current !=null ) {
-            current = current.getNext();
-            size++;
-        }
         return size;
     }
 

@@ -25,6 +25,10 @@ public class DLL extends SLL
         return size;
     }
 
+    public DNode search(int data) {
+        return super.search(data);
+    }
+
     //Inserts node object at head of the list
     @Override
     public void insertHead(DNode node) {
@@ -170,7 +174,6 @@ public class DLL extends SLL
         return null;
     }
 
-    @Override
     public void print() {
         DNode current = head;
         System.out.println("List size: " +size);
