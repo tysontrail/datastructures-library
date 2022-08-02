@@ -279,7 +279,6 @@ public class BST {
         current = current.getRight();
       }
     }
-
     System.out.println("Object to delete not found in BST tree.");
     return null;
   }

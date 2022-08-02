@@ -17,6 +17,16 @@ public class tApp {
       bst.insert(arr[i]);
     }
 
+    // Delete value from tree
+    bst.delete(3);
+
+    // Reinsert value into tree
+    bst.insert(3);
+
+    // Search value in tree
+    TNode searchValue = bst.search(3);
+    System.out.println("Returned search value: " + searchValue.getData());
+
     // Print BST tree in order to terminal
     System.out.println("BST tree in order: ");
     bst.printInOrder(bst.getRoot());
