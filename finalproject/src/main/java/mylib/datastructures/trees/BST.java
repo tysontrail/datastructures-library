@@ -263,7 +263,7 @@ public class BST {
     // Tree is empty; node with val not found
     if (getRoot() == null) {
       System.out.println("Object  not found, tree is empty.");
-      return;
+      return null;
     }
 
     // Search through tree until node with val is found
@@ -288,5 +288,6 @@ public class BST {
         return current;
       }
     }
+    return null;
   }
 }
