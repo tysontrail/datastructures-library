@@ -28,16 +28,6 @@ public class CSLL extends SLL
     }
 
     public DNode getTail() {
-        // if(getHead() == null) {
-        //     return tail = head;
-        // }
-        // DNode current = getHead();
-        // int count = 0;
-        // while(count < getSize()) {
-        //     current = current.getNext();
-        //     count++;
-        // }
-        // tail = current;
         return tail;
     }
 
@@ -69,6 +59,7 @@ public class CSLL extends SLL
     @Override
     public void insertTail(DNode node) {
         super.insertTail(node);
+        setTail(node);
         node.setNext(getHead());
     }
 
@@ -77,16 +68,23 @@ public class CSLL extends SLL
         return getTail();
     }
 
+    
+
+
+
     //Insert shouldn't have to be extended because inserting in the middle will 
     //should not make any difference. & since insert head and insert tail are called in super class and they are overridden
     //it should override to set the new head or new tail back to looop around boiiii
 
     @Override
     public void print() {
+        DNode current = getHead();
+        System.out.println("List size: " + getSize());
+        // System.out.println("Sorted: "+isSorted());
+
         for(int i = 0; i < getSize(); i++) {
-            System.out.println(i);
-            super.print();
-            i++;
+            System.out.println(current);
+            current = current.getNext();
         }
     }
     

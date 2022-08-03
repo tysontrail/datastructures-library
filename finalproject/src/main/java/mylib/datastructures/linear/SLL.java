@@ -65,7 +65,7 @@ public class SLL
 
         if (getHead() == null) {
             setHead(node);
-        } 
+        }
         else {
           getLastNode().setNext(node);
         }
@@ -76,19 +76,24 @@ public class SLL
     public void insert(DNode node, int position) {
         setSize(getSize()+1);
         if(getHead() == null) {
-            setHead(node);
+            insertHead(node);
+            setSize(getSize()-1);
+            System.out.println("head null" +position);
         }
         else if(getNode(position) == null) {
             insertTail(node);
             setSize(getSize()-1);
+            System.out.println("get tail " +position);
         }
         else if(position == 0) {
             insertHead(node);
             setSize(getSize()-1);
+            System.out.println("get head " +position);
         }
         else {
             node.setNext(getNode(position).getNext());
             getNode(position).setNext(node);
+            System.out.println("Node at position" +getNode(position));
         }
         
     }
@@ -261,10 +266,11 @@ public class SLL
     public DNode getNode(int position) {
         DNode current = getHead();
         int count = 0;
-        while(count < position) {
+        for(int i = 0; i < position - 1; i++) {
             current = current.getNext();
             count++;
         }
+
         return current;
     }
 
