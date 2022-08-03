@@ -17,11 +17,11 @@ public class tApp {
       bst.insert(arr[i]);
     }
 
-    // Delete value from tree
-    bst.delete(3);
+    // // Delete value from tree
+    // bst.delete(3);
 
-    // Reinsert value into tree
-    bst.insert(3);
+    // // Reinsert value into tree
+    // bst.insert(3);
 
     // Search value in tree
     TNode searchValue = bst.search(3);

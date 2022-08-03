@@ -34,8 +34,11 @@ public class AVL extends BST {
 
   public void setRoot(TNode root) {
     this.root = root;
-    // If obj has parents, create AVL
-    if (root.getLeft() != null || root.getRight() != null) {
+    if (root == null) {
+      return;
+    }
+    // If obj has children, create AVL
+    else if (root.getLeft() != null || root.getRight() != null) {
       avlCreator();
     }
   }
@@ -50,17 +53,25 @@ public class AVL extends BST {
     queue.add(getRoot());
 
     while (queue.size() > 0) {
+
       // Remove node from queue
-      TNode node = queue.remove();
+      TNode bstNode = queue.remove();
+
+      // Copy node
+      TNode avlNode = new TNode(bstNode.getData(), 0, null, null, null);
+
       // Insert node into AVL
-      insert(node);
-      if (node.getLeft() != null) {
+      insert(avlNode);
+
+      avlNode.print();
+
+      if (bstNode.getLeft() != null) {
         // Enqueue left child
-        queue.add(node.getLeft());
+        queue.add(bstNode.getLeft());
       }
-      if (node.getRight() != null) {
+      if (bstNode.getRight() != null) {
         // Enqueue right child
-        queue.add(node.getRight());
+        queue.add(bstNode.getRight());
       }
     }
   }
@@ -220,6 +231,9 @@ public class AVL extends BST {
         // Swap
         temp = son.getRight();
         pivot.setLeft(temp);
+        if (temp != null) {
+          temp.setParent(pivot);
+        }
 
         son.setRight(pivot);
         pivot.setParent(son);
@@ -372,6 +386,9 @@ public class AVL extends BST {
         // Swap nodes
         temp = son.getLeft();
         pivot.setRight(temp);
+        if (temp != null) {
+          temp.setParent(pivot);
+        }
 
         son.setLeft(pivot);
         pivot.setParent(son);
