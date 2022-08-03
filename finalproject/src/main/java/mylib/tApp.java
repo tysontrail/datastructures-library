@@ -36,5 +36,22 @@ public class tApp {
     System.out.println("BST tree in breadth-first:");
     bst.printBF();
     System.out.println();
+
+    // Create an AVL tree object from bst
+    AVL avl = new AVL(bst.getRoot());
+
+    // Print AVL tree in order to terminal
+    System.out.println("AVL tree in order: ");
+    avl.printInOrder(avl.getRoot());
+    System.out.println();
+
+    // Print AVL tree in breadth-first left-right traversal to file
+    System.out.println("AVL tree in breadth-first:");
+    avl.printBF();
+    System.out.println();
+
+    // Search value in tree
+    searchValue = bst.search(3);
+    System.out.println("Returned search value: " + searchValue.getData());
   }
 }

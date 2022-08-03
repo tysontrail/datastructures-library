@@ -1,4 +1,5 @@
 mylib/kApp.class
+mylib/AVL.class
 mylib/DLL.class
 mylib/tApp.class
 mylib/Dijkstra.class
