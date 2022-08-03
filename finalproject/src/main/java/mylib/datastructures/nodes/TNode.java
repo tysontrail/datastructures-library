@@ -72,4 +72,12 @@ public class TNode {
   public String toString() {
     return getData() + "";
   }
+
+  public void decrementBalance() {
+    this.balance--;
+  }
+
+  public void incrementBalance() {
+    this.balance++;
+  }
 }
