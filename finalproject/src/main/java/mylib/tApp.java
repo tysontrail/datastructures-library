@@ -5,8 +5,8 @@ public class tApp {
 
     // Create array
     int[] arr = {
-      16, 14, 4, 8, 11, 20, 29, 19, 21, 22, 23, 9, 12, 3, 2, 30, 1, 10, 17, 5, 13, 15, 27, 28, 7,
-      25, 31, 24, 26, 18, 6
+      16, 14, 20, 4, 15, 19, 29, 3, 8, 17, 21, 30, 2, 5, 11, 18, 22, 31, 1, 7, 9, 12, 23, 6, 10, 13,
+      27, 25, 28, 24, 26
     };
 
     // Create binary tree object
@@ -41,6 +41,7 @@ public class tApp {
     AVL avl = new AVL(bst.getRoot());
 
     // Print AVL tree in order to terminal
+    System.out.println();
     System.out.println("AVL tree in order: ");
     avl.printInOrder(avl.getRoot());
     System.out.println();
@@ -49,9 +50,5 @@ public class tApp {
     System.out.println("AVL tree in breadth-first:");
     avl.printBF();
     System.out.println();
-
-    // Search value in tree
-    searchValue = bst.search(3);
-    System.out.println("Returned search value: " + searchValue.getData());
   }
 }
