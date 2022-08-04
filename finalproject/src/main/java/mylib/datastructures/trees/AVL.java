@@ -10,7 +10,7 @@ public class AVL extends BST {
 
   // Default constructor initializing root to null
   public AVL() {
-    setRoot(null);
+    this.root = null;
   }
 
   // Overload constructor AVL(int val) which takes in an integer value, and
@@ -25,42 +25,82 @@ public class AVL extends BST {
   // the two following options: iteratively inserting nodes from the original tree
   // and balancing the new created AVL tree
   public AVL(TNode obj) {
-    setRoot(obj);
+    if (obj == null) {
+      return;
+    }
+
+    // Set AVL root node data to passed bstRoot
+    this.root = new TNode(obj.getData(), 0, null, null, null);
+
+    // If obj has children, create AVL
+    if (obj.getLeft() != null || obj.getRight() != null) {
+      avlCreator(obj);
+    }
   }
 
   public TNode getRoot() {
     return root;
   }
 
+  // The setter function must check if the node has children, If children are found,
+  // it must do the same as the overload constructor
   public void setRoot(TNode root) {
+    if (root == null) {
+      return;
+    }
+
     this.root = root;
-    // If obj has parents, create AVL
+
+    // If obj has children, create AVL
     if (root.getLeft() != null || root.getRight() != null) {
-      avlCreator();
+      avlCreator(root);
     }
   }
 
   // AVL creator
-  private void avlCreator() {
+  private void avlCreator(TNode bstRoot) {
 
     // Create a queue
     Queue<TNode> queue = new LinkedList<TNode>();
 
     // Enqueu root node
-    queue.add(getRoot());
+    queue.add(bstRoot);
+
+    if (bstRoot.getLeft() != null) {
+      // Enqueue left child
+      queue.add(bstRoot.getLeft());
+    }
+    if (bstRoot.getRight() != null) {
+      // Enqueue right child
+      queue.add(bstRoot.getRight());
+    }
+
+    // Remove root node from queue
+    queue.remove();
+
+    System.out.println("AVL Tree insert order");
 
     while (queue.size() > 0) {
+
       // Remove node from queue
-      TNode node = queue.remove();
+      TNode current = queue.remove();
+
+      // Copy node data
+      TNode avlNode = new TNode(current.getData(), 0, null, null, null);
+
       // Insert node into AVL
-      insert(node);
-      if (node.getLeft() != null) {
+      insert(avlNode);
+
+      // Print node
+      avlNode.print();
+
+      if (current.getLeft() != null) {
         // Enqueue left child
-        queue.add(node.getLeft());
+        queue.add(current.getLeft());
       }
-      if (node.getRight() != null) {
+      if (current.getRight() != null) {
         // Enqueue right child
-        queue.add(node.getRight());
+        queue.add(current.getRight());
       }
     }
   }
@@ -220,6 +260,9 @@ public class AVL extends BST {
         // Swap
         temp = son.getRight();
         pivot.setLeft(temp);
+        if (temp != null) {
+          temp.setParent(pivot);
+        }
 
         son.setRight(pivot);
         pivot.setParent(son);
@@ -372,6 +415,9 @@ public class AVL extends BST {
         // Swap nodes
         temp = son.getLeft();
         pivot.setRight(temp);
+        if (temp != null) {
+          temp.setParent(pivot);
+        }
 
         son.setLeft(pivot);
         pivot.setParent(son);

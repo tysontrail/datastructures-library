@@ -70,7 +70,7 @@ public class TNode {
 
   @Override
   public String toString() {
-    return getData() + "";
+    return getData() + " " + getBalance();
   }
 
   public void decrementBalance() {

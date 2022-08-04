@@ -241,16 +241,16 @@ public class BST {
 
       while (queue.size() > 0) {
         // Remove node from queue
-        TNode studentBNode = queue.remove();
+        TNode node = queue.remove();
         // Print removed node
-        System.out.println(studentBNode.toString());
-        if (studentBNode.getLeft() != null) {
+        System.out.println(node.toString());
+        if (node.getLeft() != null) {
           // Enqueue left child
-          queue.add(studentBNode.getLeft());
+          queue.add(node.getLeft());
         }
-        if (studentBNode.getRight() != null) {
+        if (node.getRight() != null) {
           // Enqueue right child
-          queue.add(studentBNode.getRight());
+          queue.add(node.getRight());
         }
       }
     }
