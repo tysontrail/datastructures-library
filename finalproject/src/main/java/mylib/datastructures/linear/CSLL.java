@@ -9,6 +9,7 @@ public class CSLL extends SLL
     private DNode head;
     private DNode tail;
     private int size;
+    private DNode tailPointer;
 
     //GETTERS & SETTERS
     public DNode getHead() {
@@ -33,6 +34,10 @@ public class CSLL extends SLL
 
     public void setTail(DNode tail) {
         this.tail = tail;
+    }
+
+    public  DNode getTailPointer() {
+        return getHead();
     }
 
     //CONSTRUCTORS
@@ -64,28 +69,118 @@ public class CSLL extends SLL
     }
 
     @Override
-    public DNode getLastNode() {
-        return getTail();
+    public void insert(DNode node, int position) {
+        super.insert(node, position);
+        setTail(getLastNode());
+        getTail().setNext(getHead());
     }
 
-    
+    @Override
+    public void sort() {
+        DNode current = getHead();
+        setSorted(null);
+        for(int i = 0; i < getSize(); i++) {
+            DNode temp = current.getNext();
+            sortedInsert(current);
+            current = temp;
+        }
+    }
 
+    @Override 
+    public void sortedInserted(DNode node) {
+        DNode current = getSorted();
+        if(getSorted() == null) {
+            node.setNext(getSorted());
+            setSorted(node);
+        }
 
+        else if(current.getData() >= node.getData()) {
+            while(current.getNext() != getTailPointer()) {
+                current = current.getNext();
+            }
+            current.setNext(node);
+            node.setNext(getHead());
+            setHead(node);
+            getTail().setNext(getHead());
+        }
+        else {
+            while(current.getNext() != getTailPointer() && current.getNext().getData() < node.getData()) {
+                current = current.getNext();
+            }
+            node.setNext(current.getNext());
+            current.setNext(node);
+        }
+    }
 
-    //Insert shouldn't have to be extended because inserting in the middle will 
-    //should not make any difference. & since insert head and insert tail are called in super class and they are overridden
-    //it should override to set the new head or new tail back to looop around boiiii
+    //SEARCH
+    //Looks up node in the list
+    @Override
+    public DNode search(int data) {
+        DNode current = getHead();
+        DNode match = null;
+        for(int i = 0; i < getSize(); i++) {
+            if(current.getData() == data) {
+                match = current;
+            }
+            current = current.getNext(); 
+        }
+        return match;
+    }
+
+    //DELETION METHODS
+    //Delete head node
+    @Override
+    public DNode deleteHead() {
+        DNode temp = getHead();
+        setHead(getHead().getNext());
+        setSize(getSize()-1);
+        return temp;
+    }
 
     @Override
-    public void print() {
+    public DNode deleteTail() {
         DNode current = getHead();
-        System.out.println("List size: " + getSize());
-        // System.out.println("Sorted: "+isSorted());
+        DNode temp = null;
+        setSize(getSize()-1);
+        while(current.getNext() != getHead()) {
+            current = current.getNext();
+            if(current.getNext().getNext() == getHead()) {
+                temp = current.getNext();
+                current.setNext(getHead());
+                return temp;
+            }
+        }
+        return temp; 
+    }
 
-        for(int i = 0; i < getSize(); i++) {
-            System.out.println(current);
+    @Override
+    public DNode delete(int data) {
+        DNode current = getHead();
+        DNode temp = null;
+        setSize(getSize()-1);
+
+        // If the id given is the first element
+        if (current.getData() == data && current != null) {
+            setSize(getSize()+1);
+            return deleteHead();
+        }
+        //search for key until find node
+        while (current.getNext() != getHead() && current.getData() != data) {
+            temp = current;
             current = current.getNext();
         }
+        //if key was at the tail
+        if(current.getNext() == getHead() && current.getData() == data) {
+            setSize(getSize()+1);
+            return deleteTail();
+        }
+        //if key was not in linked list
+        if(current.getNext() == getHead()) {
+            setSize(getSize()+1);
+            return null;
+        }
+        temp.setNext(current.getNext());
+        return temp;
     }
     
 }

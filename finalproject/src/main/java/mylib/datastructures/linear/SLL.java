@@ -7,6 +7,7 @@ public class SLL
     private DNode head;
     private int size;
     private DNode sorted;
+    private DNode tailPointer;
 
     //GETTERS & SETTERS
     public void setHead(DNode head) {
@@ -32,6 +33,14 @@ public class SLL
     public void setSorted(DNode sorted) {
         this.sorted = sorted;
     }
+
+    public DNode getTailPointer() {
+        return null;
+    }
+
+    // public void setTailPointer() {
+    //     this.tailPointer = null;
+    // }
 
     //CONSTRUCTORS
     //Default constructor with no arguments that creates a null head object
@@ -78,22 +87,22 @@ public class SLL
         if(getHead() == null) {
             insertHead(node);
             setSize(getSize()-1);
-            System.out.println("head null" +position);
+            //System.out.println("head null" +position);
         }
         else if(getNode(position) == null) {
             insertTail(node);
             setSize(getSize()-1);
-            System.out.println("get tail " +position);
+            //System.out.println("get tail " +position);
         }
         else if(position == 0) {
             insertHead(node);
             setSize(getSize()-1);
-            System.out.println("get head " +position);
+            //System.out.println("get head " +position);
         }
         else {
             node.setNext(getNode(position).getNext());
             getNode(position).setNext(node);
-            System.out.println("Node at position" +getNode(position));
+            //System.out.println("Node at position" +getNode(position));
         }
         
     }
@@ -106,13 +115,19 @@ public class SLL
             sort();
         }
 
-		if(getHead() == null || getHead().getData() > node.getData()) {
-			node.setNext(getHead());
-            setHead(node);
+		if(current == null || getHead().getData() >= node.getData()) {
+			insertHead(node);
+            setSize(getSize()-1);
+            //System.out.println("UPDATED HEAD");
 		}
+
+        if(getLastNode().getData() < node.getData()) {
+            insertTail(node);
+            setSize(getSize()-1);
+        }
 		else {
 			current = getHead();
-			while(current.getNext() != null && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
+			while(current.getNext() != getTailPointer() && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
 				current = current.getNext(); 
 			}
 			node.setNext(current.getNext());
@@ -125,11 +140,14 @@ public class SLL
     //checks to see if list is sorted or not
     public boolean isSorted() {
         DNode current = getHead();
-        if(getHead() == null) {
+        if(current == null) {
             return true;
         }
-        for(current = getHead(); current.getNext() != null; current = current.getNext()) {
-            if(current.getData() > current.getNext().getData()) {
+        while(current.getNext() != getTailPointer()) {
+            if(current.getData() < current.getNext().getData()) {
+                current = current.getNext();
+            }
+            else{
                 return false;
             }
         }
@@ -159,7 +177,7 @@ public class SLL
 		}
         else {
 			DNode current = getSorted();
-			while(current.getNext() != null && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
+			while(current.getNext() != getTailPointer() && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
 				current = current.getNext(); 
 			}
 			node.setNext(current.getNext());
@@ -199,13 +217,14 @@ public class SLL
         DNode temp = null;
         setSize(getSize()-1);
         while (current != null) {
-            current = current.getNext();
             if (current.getNext().getNext() == null) {
                 temp = current.getNext();
                 current.setNext(null);
             return temp;
             }
+            current = current.getNext();
         }
+
         return temp;
     }
 
@@ -215,23 +234,21 @@ public class SLL
         DNode temp = null;
         setSize(getSize()-1);
         // If the id given is the first element
-        if (getHead().getData() == data) {
+        if (current.getData() == data && current != null) {
+            setSize(getSize()+1);
             return deleteHead();
         }
-        while (current != null) {
+        while (current != null && current.getData() != data) {
+            temp = current;
             current = current.getNext();
-            // If the id given is the last element
-            if (current.getNext() == null && current.getData() == data) {
-                return deleteTail();
-            }
-
-            if (current.getNext().getData() == data) {
-                temp = current.getNext();
-                current.setNext(current.getNext().getNext());
-                return temp;
-            }
         }
-        return null;
+        if(current == null) {
+            setSize(getSize()+1);
+            return null;
+        }
+        temp.setNext(current.getNext());
+        return temp;
+
     }
 
     //Deletes the whole list
@@ -247,16 +264,20 @@ public class SLL
         System.out.println("List size: " + getSize());
         System.out.println("Sorted: "+isSorted());
 
-        while (current != null) {
+        for(int i = 0; i < getSize(); i++) {
             System.out.println(current);
             current = current.getNext();
         }
+        // while (current != getTailPointer()) {
+        //     System.out.println(current);
+        //     current = current.getNext();
+        // }
     }
 
     //grabs last node in the list
     public DNode getLastNode() {
         DNode current = getHead();
-        while (current.getNext() != null) {
+        while (current.getNext() != getTailPointer()) {
             current = current.getNext();
         }
         return current;

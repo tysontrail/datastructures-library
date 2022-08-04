@@ -4,10 +4,27 @@ package mylib;
  * Stack class
  *
  */
+//ADD IS EMPTY TO STACK
 public class Stack extends SLL
 {
     private DNode tail;
     private int size;
+
+    public DNode getTail() {
+        return tail;
+    }
+
+    public void setTail(DNode tail) {
+        this.tail = tail;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     public Stack() {
         this.tail = null;

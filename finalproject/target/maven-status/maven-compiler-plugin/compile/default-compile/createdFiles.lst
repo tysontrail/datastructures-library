@@ -1,8 +1,5 @@
 mylib/kApp.class
-<<<<<<< HEAD
-=======
 mylib/AVL.class
->>>>>>> 0e62a591209fed9832bdadb52db6f71291723e19
 mylib/DLL.class
 mylib/tApp.class
 mylib/Dijkstra.class

@@ -39,11 +39,12 @@ public class kApp
         ssl.delete(88);
         ssl.deleteTail();
         ssl.deleteHead();
+        ssl.delete(34);
         ssl.print();
 
         System.out.println("\nSearch");
         System.out.println("Search for 4: ");
-        System.out.println(ssl.search(4));
+        System.out.println(ssl.search(11));
         System.out.println("Search for 45: ");
         System.out.println(ssl.search(45));
 
@@ -102,12 +103,31 @@ public class kApp
 
         System.out.println("\n****** CIRCULAR SINGLY LINKED LIST ******** \n");
         CSLL csll = new CSLL();
-        csll.insertTail(new DNode(2));
-        csll.insertHead(new DNode(8));
-        csll.insertTail(new DNode(6));
-        csll.insert(new DNode(5), 1);
+        csll.insertTail(new DNode(1));
+        csll.insertTail(new DNode(5));
+        csll.insertTail(new DNode(15));
+
+        csll.insert(new DNode(17), 2);
         csll.print();
+        //csll.sort();
+        //csll.sortedInsert(new DNode(4));
+        //csll.sortedInserted(new DNode(4));
+
+        //SEARCH METHODS
+        System.out.println("\nSearch");
+        System.out.println("Search for 5: ");
+        System.out.println(csll.search(5));
+        System.out.println("Search for 45: ");
+        System.out.println(csll.search(45));
         
+        //DELETION METHODS
+        System.out.println("\nDelete method tests");
+        //ssl.delete(88);
+        csll.deleteTail();
+        csll.deleteHead();
+        csll.delete(5);
+        //csll.delete(56);
+        csll.print();
 
     }
 }
