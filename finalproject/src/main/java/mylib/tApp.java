@@ -17,15 +17,10 @@ public class tApp {
       bst.insert(arr[i]);
     }
 
-    // // Delete value from tree
-    // bst.delete(3);
-
-    // // Reinsert value into tree
-    // bst.insert(3);
-
     // Search value in tree
+    System.out.println();
     TNode searchValue = bst.search(3);
-    System.out.println("Returned search value: " + searchValue.getData());
+    System.out.println("Returned BST search value: " + searchValue.getData());
 
     // Print BST tree in order to terminal
     System.out.println("BST tree in order: ");
@@ -50,5 +45,12 @@ public class tApp {
     System.out.println("AVL tree in breadth-first:");
     avl.printBF();
     System.out.println();
+
+    // Search value in AVL tree
+    searchValue = avl.search(3);
+    System.out.println("Returned AVL search value: " + searchValue.getData());
+
+    // Delete value from tree
+    bst.delete(3);
   }
 }

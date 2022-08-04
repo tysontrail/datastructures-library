@@ -24,17 +24,17 @@ public class AVL extends BST {
   // the constructor needs to create a balanced tree from passed tree by one of
   // the two following options: iteratively inserting nodes from the original tree
   // and balancing the new created AVL tree
-  public AVL(TNode bstRoot) {
-    if (bstRoot == null) {
+  public AVL(TNode obj) {
+    if (obj == null) {
       return;
     }
 
     // Set AVL root node data to passed bstRoot
-    this.root = new TNode(bstRoot.getData(), 0, null, null, null);
+    this.root = new TNode(obj.getData(), 0, null, null, null);
 
     // If obj has children, create AVL
-    if (bstRoot.getLeft() != null || bstRoot.getRight() != null) {
-      avlCreator(bstRoot);
+    if (obj.getLeft() != null || obj.getRight() != null) {
+      avlCreator(obj);
     }
   }
 
@@ -42,8 +42,19 @@ public class AVL extends BST {
     return root;
   }
 
+  // The setter function must check if the node has children, If children are found,
+  // it must do the same as the overload constructor
   public void setRoot(TNode root) {
+    if (root == null) {
+      return;
+    }
+
     this.root = root;
+
+    // If obj has children, create AVL
+    if (root.getLeft() != null || root.getRight() != null) {
+      avlCreator(root);
+    }
   }
 
   // AVL creator
