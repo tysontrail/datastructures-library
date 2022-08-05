@@ -24,14 +24,17 @@ public class MaxH extends Heap {
   }
 
   // Inserts the value key to the vector and maintains heap properties
-  public void insert(int key) {}
+  public void insert(int key) {
+    elements.add(key);
+    heapifyUp(getSize() - 1);
+  }
 
   // Removes the value key from the vector and maintains heap properties
-  public delete(int key) {}
+  public void delete(int key) {}
 
   // Applies heapsort to the vector content
   // Uses heapify(int[] array)?
-  public sort() {
+  public void sort() {
 
     // Create array from elements
     int[] array = new int[getSize()];
@@ -62,10 +65,19 @@ public class MaxH extends Heap {
   }
 
   // Heapification process after deletion
-  private heapifyDown(int i) {}
+  private void heapifyDown(int i) {}
 
   // Heapification process after insertion
-  private heapifyUp(int i) {}
+  private void heapifyUp(int i) {
+    while (i > 0) {
+      // If added element is greater than its parent, swap
+      if (parent(i) < elements.get(i)) {
+        swap(i, ((i - 1) / 2));
+      }
+      // Move index of inserted node to parent position
+      i = ((i - 1) / 2);
+    }
+  }
 
   // Takes in an array of values and returns a valid heap
   // this can be used by sort() and the third overload constructor

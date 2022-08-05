@@ -31,16 +31,29 @@ public class Heap {
 
   // Return parent of elements[i]
   protected int parent(int i) {
-    return elements.get((i - 1) / 2);
+    if (i > 1 && i < getSize()) {
+      return elements.get((i - 1) / 2);
+    } else {
+      return -1;
+    }
   }
+
   // Returns left child of elements[i]
   protected int left(int i) {
-    return elements.get(2 * i + 1);
+    if ((2 * i + 1) < getSize()) {
+      return elements.get(2 * i + 1);
+    } else {
+      return -1;
+    }
   }
 
   // Returns right child of elements[i]
   protected int right(int i) {
-    return elements.get(2 * i + 1);
+    if ((2 * i + 2) < getSize()) {
+      return elements.get(2 * i + 2);
+    } else {
+      return -1;
+    }
   }
 
   // Swaps contents of indices x and y
