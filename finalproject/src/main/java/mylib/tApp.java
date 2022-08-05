@@ -3,6 +3,8 @@ package mylib;
 public class tApp {
   public static void main(String[] args) {
 
+    // TREES
+
     // Create array
     int[] arr = {
       16, 14, 20, 4, 15, 19, 29, 3, 8, 17, 21, 30, 2, 5, 11, 18, 22, 31, 1, 7, 9, 12, 23, 6, 10, 13,
@@ -52,5 +54,8 @@ public class tApp {
 
     // Delete value from tree
     bst.delete(3);
+
+    // HEAPS
+
   }
 }
