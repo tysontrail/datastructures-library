@@ -52,66 +52,81 @@ public class kApp
         ssl.clear();
         ssl.print();
 
-        // System.out.println("\n****** DOUBLY LINKED LIST ******** \n");
-        // DLL dll= new DLL();
+        System.out.println("\n****** DOUBLY LINKED LIST ******** \n");
+        DLL dll= new DLL();
 
-        // //Insertion methods tests
-        // dll.insert(new DNode(1), 0);
-        // dll.insertHead(new DNode(88));
-        // dll.insertTail(new DNode(4));
-        // dll.insert(new DNode(15), 3);
+        //Insertion methods tests
+        dll.insert(new DNode(1), 0);
+        dll.insertHead(new DNode(88));
+        dll.insertTail(new DNode(4));
+        dll.insert(new DNode(15), 3);
 
-        // System.out.println("The list:");
-        // dll.print();
+        System.out.println("The list:");
+        dll.print();
 
-        // dll.sort();
-        // System.out.println("\nThe sorted list: ");
-        // dll.print();
+        dll.sort();
+        System.out.println("\nThe sorted list: ");
+        dll.print();
 
 
-        // //Sorted insert test
-        // dll.sortedInsert(new DNode(11));
-        // System.out.println("\nSorted insert of value 11");
-        // dll.print();
+        //Sorted insert test
+        dll.sortedInsert(new DNode(11));
+        System.out.println("\nSorted insert of value 11");
+        dll.print();
 
-        // //is Sorted flag check
-        // dll.insertHead(new DNode(45));
-        // System.out.println("\nIs sorted flag test");
-        // dll.print();
+        //is Sorted flag check
+        dll.insertHead(new DNode(45));
+        System.out.println("\nIs sorted flag test");
+        dll.print();
 
-        // //Delete method tests
-        // System.out.println("\nDelete method tests");
-        // System.out.println("\nDeleted Data 11");
-        // dll.delete(11);
-        // dll.print();
-        // System.out.println("\nDeleted Tail");
-        // dll.deleteTail();
-        // dll.print();
-        // System.out.println("\nDeleted Head");
-        // dll.deleteHead();
-        // dll.print();
+        //Delete method tests
+        System.out.println("\nDelete method tests");
+        System.out.println("\nDeleted Data 11");
+        dll.delete(11);
+        dll.print();
+        System.out.println("\nDeleted Tail");
+        dll.deleteTail();
+        dll.print();
+        System.out.println("\nDeleted Head");
+        dll.deleteHead();
+        dll.print();
 
-        // System.out.println("\nSearch");
-        // System.out.println("Search for 4: ");
-        // System.out.println(dll.search(4));
-        // System.out.println("Search for 45: ");
-        // System.out.println(dll.search(45));
+        System.out.println("\nSearch");
+        System.out.println("Search for 4: ");
+        System.out.println(dll.search(4));
+        System.out.println("Search for 45: ");
+        System.out.println(dll.search(45));
 
-        // System.out.println("\nClear");
-        // dll.clear();
-        // dll.print();
+        System.out.println("\nClear");
+        dll.clear();
+        dll.print();
 
         System.out.println("\n****** CIRCULAR SINGLY LINKED LIST ******** \n");
         CSLL csll = new CSLL();
-        csll.insertTail(new DNode(1));
-        csll.insertTail(new DNode(5));
-        csll.insertTail(new DNode(15));
+        //INSERTION METHODS
 
+        csll.insertTail(new DNode(16));
+        csll.insertTail(new DNode(55));
+        csll.insertTail(new DNode(15));
         csll.insert(new DNode(17), 2);
+
+        System.out.println("The list:");
         csll.print();
-        //csll.sort();
-        //csll.sortedInsert(new DNode(4));
-        //csll.sortedInserted(new DNode(4));
+
+        //SORT METHOD
+        csll.sort();
+        System.out.println("\nThe sorted list: ");
+        csll.print();
+
+        //is Sorted flag check
+        csll.insertHead(new DNode(45));
+        System.out.println("\nIs sorted flag test");
+        csll.print();
+
+        //Sorted insert test
+        csll.sortedInsert(new DNode(32));
+        System.out.println("\nSorted insert of value 11");
+        csll.print();
 
         //SEARCH METHODS
         System.out.println("\nSearch");
@@ -123,11 +138,77 @@ public class kApp
         //DELETION METHODS
         System.out.println("\nDelete method tests");
         //ssl.delete(88);
+        System.out.println("\nDelete tail");
         csll.deleteTail();
-        csll.deleteHead();
-        csll.delete(5);
-        //csll.delete(56);
         csll.print();
+        System.out.println("\nDelete head");
+        csll.deleteHead();
+        csll.print();
+        System.out.println("\nDelete 16 \n");
+        csll.delete(32);
+        csll.print();
+        System.out.println("\nTry to delete element not in list:");
+        csll.delete(56);
+        csll.print();
+
+        System.out.println("\nClear");
+        csll.clear();
+        csll.print();
+
+        System.out.println("\n****** CIRCULAR DOUBLY LINKED LIST ******** \n");
+        CDLL cdll = new CDLL();
+
+        //INSERTION METHODS
+
+        cdll.insertTail(new DNode(16));
+        cdll.insertTail(new DNode(55));
+        cdll.insertTail(new DNode(15));
+        cdll.insert(new DNode(17), 2);
+
+        System.out.println("The list:");
+        cdll.print();
+
+        //SORT METHOD
+        // cdll.sort();
+        // System.out.println("\nThe sorted list: ");
+        // cdll.print();
+
+        //is Sorted flag check
+        cdll.insertHead(new DNode(45));
+        System.out.println("\nIs sorted flag test");
+        cdll.print();
+
+        //Sorted insert test
+        // cdll.sortedInsert(new DNode(32));
+        // System.out.println("\nSorted insert of value 11");
+        // cdll.print();
+
+        //SEARCH METHODS
+        System.out.println("\nSearch");
+        System.out.println("Search for 5: ");
+        System.out.println(cdll.search(5));
+        System.out.println("Search for 45: ");
+        System.out.println(cdll.search(45));
+        
+        //DELETION METHODS
+        System.out.println("\nDelete method tests");
+        //ssl.delete(88);
+        System.out.println("\nDelete tail");
+        cdll.deleteTail();
+        cdll.print();
+        System.out.println("\nDelete head");
+        cdll.deleteHead();
+        cdll.print();
+        System.out.println("\nDelete 16 \n");
+        cdll.delete(17);
+        cdll.print();
+        System.out.println("\nTry to delete element not in list:");
+        cdll.delete(56);
+        cdll.print();
+
+        System.out.println("\nClear");
+        cdll.clear();
+        cdll.print();
 
     }
 }

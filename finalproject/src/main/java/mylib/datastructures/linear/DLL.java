@@ -9,10 +9,27 @@ public class DLL extends SLL
     private DNode tail;
     private int size;
     private DNode sorted;
+    private DNode tailPointer;
 
     //GETTERS & SETTERS
     public DNode getHead() {
         return head;
+    }
+
+    public DNode getSorted() {
+        return sorted;
+    }
+
+    public void setSorted(DNode sorted) {
+        this.sorted = sorted;
+    }
+
+    public DNode getTailPointer() {
+        return tailPointer;
+    }
+
+    public void setTailPointer(DNode tailPointer) {
+        this.tailPointer = tailPointer;
     }
 
     public void setHead(DNode head) {
@@ -116,12 +133,18 @@ public class DLL extends SLL
         }
     
         if(getHead() == null || getHead().getData() > node.getData()) {
-            node.setNext(getHead());
-            setHead(node);
+            insertHead(node);
+            setSize(getSize()-1);
         }
+
+        if(getLastNode().getData() < node.getData()) {
+            insertTail(node);
+            setSize(getSize()-1);
+        }
+
         else {
             current = getHead();
-            while(current.getNext() != null && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
+            while(current.getNext() != getTailPointer() && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
                 current = current.getNext(); 
             }
             //set next for new node
@@ -148,12 +171,15 @@ public class DLL extends SLL
     public void sortedInserted(DNode node) {
         if(getSorted() == null || getSorted().getData() > node.getData()) {
 			node.setNext(getSorted());
+            //getSorted().setPrev(node);
             setSorted(node);
+            
 		}
         else {
 			DNode current = getSorted();
+            //System.out.println("geetSorted: "+getSorted());
 			while(current.getNext() != null && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
-				current = current.getNext(); 
+				current = current.getNext();
 			}
 			node.setNext(current.getNext());
             current.getNext().setPrev(node);
@@ -176,10 +202,11 @@ public class DLL extends SLL
     //Delete tail node
     @Override
     public DNode deleteTail() {
+        DNode temp = getTail();
         setTail(getTail().getPrev());
         getTail().setNext(null);
         setSize(getSize()-1);
-        return getTail();
+        return temp;
     }
 
     //Deletes the node if found in the list
@@ -189,22 +216,26 @@ public class DLL extends SLL
         DNode tempNext = null;
         setSize(getSize()-1);
         // If the id given is the first element
-        if (getHead().getData() == data) {
+        if (current.getData() == data && current != null) {
+            setSize(getSize()+1);
             return deleteHead();
         }
+
         else if(getTail().getData() == data) {
-            System.out.println("tst");
             return deleteTail();
         }
-        while (current != null) {
-            if (current.getNext().getData() == data) {
-                tempNext = current.getNext();
-                current.setNext(current.getNext().getNext());
-                current.getNext().setPrev(current);
-                return tempNext;
-            }
+        while (current != null && current.getData() != data) {
+            tempNext = current;
             current = current.getNext();
         }
-        return null;
+
+        if(current == null) {
+            setSize(getSize()+1);
+            System.out.println("Element not found in list");
+            return null;
+        }
+        tempNext.setNext(current.getNext());
+        current.getNext().setPrev(tempNext);
+        return current;
     }
 }

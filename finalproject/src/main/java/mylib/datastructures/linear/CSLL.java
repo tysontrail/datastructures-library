@@ -40,6 +40,10 @@ public class CSLL extends SLL
         return getHead();
     }
 
+    public  void setTailPointer(DNode tailPointer) {
+        this.tailPointer = tailPointer;
+    }
+
     //CONSTRUCTORS
     public CSLL() {
         setHead(null);
@@ -79,37 +83,22 @@ public class CSLL extends SLL
     public void sort() {
         DNode current = getHead();
         setSorted(null);
-        for(int i = 0; i < getSize(); i++) {
+
+        for (int i = 0; i < getSize(); i++) {
             DNode temp = current.getNext();
-            sortedInsert(current);
+            sortedInserted(current);
             current = temp;
         }
-    }
+        setHead(getSorted());
 
-    @Override 
-    public void sortedInserted(DNode node) {
-        DNode current = getSorted();
-        if(getSorted() == null) {
-            node.setNext(getSorted());
-            setSorted(node);
-        }
+        DNode temp2 = getHead();
+        for(int i = 1; i < getSize(); i++) {
+            temp2 = temp2.getNext();
 
-        else if(current.getData() >= node.getData()) {
-            while(current.getNext() != getTailPointer()) {
-                current = current.getNext();
-            }
-            current.setNext(node);
-            node.setNext(getHead());
-            setHead(node);
-            getTail().setNext(getHead());
         }
-        else {
-            while(current.getNext() != getTailPointer() && current.getNext().getData() < node.getData()) {
-                current = current.getNext();
-            }
-            node.setNext(current.getNext());
-            current.setNext(node);
-        }
+        setTail(temp2);
+        getTail().setNext(getHead());
+
     }
 
     //SEARCH
@@ -133,6 +122,7 @@ public class CSLL extends SLL
     public DNode deleteHead() {
         DNode temp = getHead();
         setHead(getHead().getNext());
+        getTail().setNext(getHead());
         setSize(getSize()-1);
         return temp;
     }
@@ -174,13 +164,14 @@ public class CSLL extends SLL
             setSize(getSize()+1);
             return deleteTail();
         }
-        //if key was not in linked list
+        //if key was not in list
         if(current.getNext() == getHead()) {
             setSize(getSize()+1);
+            System.out.println("Element not found in list \n");
             return null;
         }
         temp.setNext(current.getNext());
-        return temp;
+        return current;
     }
     
 }
