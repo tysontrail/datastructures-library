@@ -171,14 +171,14 @@ public class SLL
 
     //created a separate sortedinserted method to use in sort to reduce confusion since the actual sortedinsert has to call sort already
     public void sortedInserted(DNode node) {
-		if(getSorted() == null || getSorted().getData() > node.getData()) {
+		if(getSorted() == null || getSorted().getData() >= node.getData()) {
 			node.setNext(getSorted());
             setSorted(node);
 		}
         else {
 			DNode current = getSorted();
-			while(current.getNext() != getTailPointer() && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
-				current = current.getNext(); 
+			while(current.getNext() != null && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
+				current = current.getNext();
 			}
 			node.setNext(current.getNext());
 			current.setNext(node);
@@ -244,10 +244,11 @@ public class SLL
         }
         if(current == null) {
             setSize(getSize()+1);
+            System.out.println("Element not found in list");
             return null;
         }
         temp.setNext(current.getNext());
-        return temp;
+        return current;
 
     }
 
@@ -268,10 +269,6 @@ public class SLL
             System.out.println(current);
             current = current.getNext();
         }
-        // while (current != getTailPointer()) {
-        //     System.out.println(current);
-        //     current = current.getNext();
-        // }
     }
 
     //grabs last node in the list

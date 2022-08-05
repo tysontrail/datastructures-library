@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: mylib.AppTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s - in mylib.AppTest
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in mylib.AppTest
->>>>>>> 444529dfd8fb400da15774a405de2ce9a7203d2a
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 s - in mylib.AppTest
