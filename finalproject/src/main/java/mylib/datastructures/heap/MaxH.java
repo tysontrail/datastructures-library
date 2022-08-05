@@ -30,7 +30,37 @@ public class MaxH extends Heap {
   }
 
   // Removes the value key from the vector and maintains heap properties
-  public void delete(int key) {}
+  public void delete(int key) {
+
+    // Create index for key
+    int idx;
+
+    // Key found indicator
+    boolean found = false;
+
+    // Search for key in heap
+    for (int i = 0; i < getSize(); i++) {
+      if (elements.get(i) == key) {
+        idx = i;
+        found = true;
+        break;
+      }
+    }
+
+    // Check if key was found
+    if (found != true) {
+      System.out.println("Value to delete not found.");
+    }
+
+    // Swap node to be deleted with last leaf node
+    swap(idx, getSize() - 1);
+
+    // Remove last leaf node
+    elements.remove(getSize() - 1);
+
+    // Heapify downwards from swapped node
+    heapifyDown(idx);
+  }
 
   // Applies heapsort to the vector content
   // Uses heapify(int[] array)?
@@ -65,7 +95,28 @@ public class MaxH extends Heap {
   }
 
   // Heapification process after deletion
-  private void heapifyDown(int i) {}
+  private void heapifyDown(int i) {
+    while (i < getSize()) {
+      // If swapped element is less than its children, swap with the
+      // largest child
+      if (left(i) > elements.get(i) || right(i) > elements.get(i)) {
+        if (left(i) > right(i)) {
+          // Swap left child
+          swap(i, (2 * i + 1));
+          // Update i to left child
+          i = 2 * i + 1;
+        } else {
+          // Swap right child
+          swap(i, (2 * i + 2));
+          // Update i to right child
+          i = 2 * i + 2;
+        }
+      } else {
+        // Tree is heapified
+        return;
+      }
+    }
+  }
 
   // Heapification process after insertion
   private void heapifyUp(int i) {
@@ -73,6 +124,8 @@ public class MaxH extends Heap {
       // If added element is greater than its parent, swap
       if (parent(i) < elements.get(i)) {
         swap(i, ((i - 1) / 2));
+      } else {
+        return;
       }
       // Move index of inserted node to parent position
       i = ((i - 1) / 2);
