@@ -66,5 +66,15 @@ public class Heap {
   //  displays the content of the heap vector over 2 lines. First line is the index of the
   // parent of each element. Second line are the elements themselves
   // for example:
-  public void print() {}
+  public void print() {
+
+    for (int i = 0; i < getSize(); i++) {
+      System.out.print(parent(i) + " ");
+    }
+    System.out.println();
+    for (int i = 0; i < getSize(); i++) {
+      System.out.print(elements.get(i) + " ");
+    }
+    System.out.println();
+  }
 }

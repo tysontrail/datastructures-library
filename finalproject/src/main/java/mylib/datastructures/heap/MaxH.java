@@ -32,34 +32,32 @@ public class MaxH extends Heap {
   // Removes the value key from the vector and maintains heap properties
   public void delete(int key) {
 
-    // Create index for key
-    int idx;
-
-    // Key found indicator
-    boolean found = false;
+    // Create index for key and initialize to -1
+    int idx = -1;
 
     // Search for key in heap
     for (int i = 0; i < getSize(); i++) {
       if (elements.get(i) == key) {
         idx = i;
-        found = true;
         break;
       }
     }
 
     // Check if key was found
-    if (found != true) {
+    if (idx != -1) {
       System.out.println("Value to delete not found.");
+      return;
+    } else {
+
+      // Swap node to be deleted with last leaf node
+      swap(idx, getSize() - 1);
+
+      // Remove last leaf node
+      elements.remove(getSize() - 1);
+
+      // Heapify downwards from swapped node
+      heapifyDown(idx);
     }
-
-    // Swap node to be deleted with last leaf node
-    swap(idx, getSize() - 1);
-
-    // Remove last leaf node
-    elements.remove(getSize() - 1);
-
-    // Heapify downwards from swapped node
-    heapifyDown(idx);
   }
 
   // Applies heapsort to the vector content
@@ -167,10 +165,16 @@ public class MaxH extends Heap {
         left = 2 * parent + 1;
         right = 2 * parent + 2;
       }
-
-      Vector<Integer> vector = new Vector<Integer>(array.length);
-
-      return vector;
     }
+
+    // Create new vector
+    Vector<Integer> vector = new Vector<Integer>(array.length);
+
+    // Copy array over
+    for (int i = 0; i < array.length; i++) {
+      vector.add(array[i]);
+    }
+
+    return vector;
   }
 }

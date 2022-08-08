@@ -57,5 +57,15 @@ public class tApp {
 
     // HEAPS
 
+    // MaxH Testing
+
+    // Default constructor initializes vector to no size
+    MaxH maxConstructor1 = new MaxH();
+
+    MaxH maxConstructor2 = new MaxH(10);
+
+    MaxH maxConstructor3 = new MaxH(arr);
+
+    maxConstructor3.print();
   }
 }
