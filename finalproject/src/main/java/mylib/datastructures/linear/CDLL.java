@@ -44,6 +44,7 @@ public class CDLL extends DLL
     }
 
     //INSERTION METHODS
+    //O(1)
     @Override
     public void insertHead(DNode node) {
         super.insertHead(node);
@@ -51,6 +52,7 @@ public class CDLL extends DLL
         getTail().setNext(getHead());
     }
 
+    //O(1)
     @Override
     public void insertTail(DNode node) {
         super.insertTail(node);
@@ -58,6 +60,7 @@ public class CDLL extends DLL
         getHead().setPrev(getTail());
     }
 
+    //O(n)
     @Override
     public void insert(DNode node, int position) {
         super.insert(node, position);
@@ -66,6 +69,7 @@ public class CDLL extends DLL
     }
 
     //SORT METHODS
+    //O(n^2)
     @Override
     public void sort() {
         DNode current = getHead();
@@ -90,6 +94,7 @@ public class CDLL extends DLL
         getHead().setPrev(getTail());
     }
 
+    //O(n)
     @Override
     public void sortedInserted(DNode node) {
         if(getSorted() == null) {
@@ -114,6 +119,7 @@ public class CDLL extends DLL
 		}
     }
 
+    //O(n)
     @Override
     public void sortedInsert(DNode node) {
         DNode current = getHead();
@@ -143,6 +149,7 @@ public class CDLL extends DLL
     }
 
     //SEARCH
+    //O(n)
     @Override
     public DNode search(int data) {
         DNode current = getHead();
@@ -158,6 +165,7 @@ public class CDLL extends DLL
     }
 
     //DELETION METHODS
+    //O(1)
     @Override
     public DNode deleteHead() {
         DNode temp = getHead();
@@ -168,6 +176,7 @@ public class CDLL extends DLL
         return temp;
     }
 
+    //O(1)
     @Override
     public DNode deleteTail() {
         DNode temp = getTail();
@@ -178,6 +187,7 @@ public class CDLL extends DLL
         return temp;
     }
 
+    //O(n)
     @Override
     public DNode delete(int data) {
         DNode current = getHead();

@@ -8,49 +8,55 @@ public class kApp
 {
     public static void main( String[] args )
     {
-        // System.out.println("\n******** SINGLY LINKED LIST ********\n");
-        // SLL ssl = new SLL();
-        // //Insertion methods tests
-        // ssl.insert(new DNode(1), 0);
-        // ssl.insertHead(new DNode(88));
-        // ssl.insertTail(new DNode(4));
-        // ssl.insert(new DNode(15), 3);
+        System.out.println("\n******** SINGLY LINKED LIST ********\n");
+        SLL ssl = new SLL();
+        //Insertion methods tests
+        ssl.insert(new DNode(1), 0);
+        ssl.insertHead(new DNode(88));
+        ssl.insertTail(new DNode(4));
+        ssl.insert(new DNode(15), 3);
 
-        // System.out.println("The list:");
-        // ssl.print();
+        System.out.println("The list:");
+        ssl.print();
 
-        // //Sort method test
-        // ssl.sort();
-        // System.out.println("\nThe sorted list: ");
-        // ssl.print();
+        //Sort method test
+        ssl.sort();
+        System.out.println("\nThe sorted list: ");
+        ssl.print();
 
-        // //Sorted insert test
-        // ssl.sortedInsert(new DNode(11));
-        // System.out.println("\nSorted insert of value 11");
-        // ssl.print();
+        //Sorted insert test
+        ssl.sortedInsert(new DNode(0));
+        System.out.println("\nSorted insert of value 0");
+        ssl.print();
 
-        // //is Sorted flag check
-        // ssl.insertHead(new DNode(45));
-        // System.out.println("\nIs sorted flag test");
-        // ssl.print();
+        //is Sorted flag check
+        ssl.insertHead(new DNode(45));
+        System.out.println("\nIs sorted flag test");
+        ssl.print();
 
-        // //Delete method tests
-        // System.out.println("\nDelete method tests");
-        // ssl.delete(88);
-        // ssl.deleteTail();
-        // ssl.deleteHead();
-        // ssl.delete(34);
-        // ssl.print();
+        //Delete method tests
+        System.out.println("\nDelete method tests");
+        System.out.println("\nDeleted Data 15");
+        ssl.delete(15);
+        ssl.print();
+        System.out.println("\nDeleted Tail");
+        ssl.deleteTail();
+        ssl.print();
+        System.out.println("\nDeleted Head");
+        ssl.deleteHead();
+        ssl.print();
+        System.out.println("\nDelete element not in list test: ");
+        ssl.delete(100);
 
-        // System.out.println("\nSearch");
-        // System.out.println("Search for 4: ");
-        // System.out.println(ssl.search(11));
-        // System.out.println("Search for 45: ");
-        // System.out.println(ssl.search(45));
+        System.out.println("\nSearch");
+        System.out.println("Search for 4: ");
+        System.out.println(ssl.search(11));
+        System.out.println("Search for 45: ");
+        System.out.println(ssl.search(45));
 
-        // System.out.println("\nClear");
-        // ssl.clear();
-        // ssl.print();
+        System.out.println("\nClear");
+        ssl.clear();
+        ssl.print();
 
         System.out.println("\n****** DOUBLY LINKED LIST ******** \n");
         DLL dll= new DLL();
@@ -70,8 +76,8 @@ public class kApp
 
 
         //Sorted insert test
-        dll.sortedInsert(new DNode(11));
-        System.out.println("\nSorted insert of value 11");
+        dll.sortedInsert(new DNode(0));
+        System.out.println("\nSorted insert of value 0");
         dll.print();
 
         //is Sorted flag check
@@ -81,8 +87,8 @@ public class kApp
 
         //Delete method tests
         System.out.println("\nDelete method tests");
-        System.out.println("\nDeleted Data 11");
-        dll.delete(11);
+        System.out.println("\nDeleted Data 15");
+        dll.delete(15);
         dll.print();
         System.out.println("\nDeleted Tail");
         dll.deleteTail();
@@ -90,6 +96,8 @@ public class kApp
         System.out.println("\nDeleted Head");
         dll.deleteHead();
         dll.print();
+        System.out.println("\nDelete element not in list test: ");
+        dll.delete(100);
 
         System.out.println("\nSearch");
         System.out.println("Search for 4: ");

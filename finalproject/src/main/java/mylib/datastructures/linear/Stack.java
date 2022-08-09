@@ -4,7 +4,6 @@ package mylib;
  * Stack class
  *
  */
-//ADD IS EMPTY TO STACK
 public class Stack extends SLL
 {
     private DNode head;
@@ -37,15 +36,18 @@ public class Stack extends SLL
         setSize(0);
     }
 
+    //O(1)
     public void push(DNode node) {
         super.insertHead(node);
     }
 
     //deletes top of the stack
+    //O(1)
     public DNode pop() {
         return super.deleteHead();
     }
     
+    //O(1)
     public boolean isEmpty() {
         if(getHead() == null) {
             return true;
@@ -53,6 +55,7 @@ public class Stack extends SLL
         return false;
     }
 
+    //O(1)
     public int peek() {
         if(getHead() == null) {
             System.out.println("The stack is empty");
@@ -72,7 +75,6 @@ public class Stack extends SLL
         //Override with empty body
     }
 
-    //Needs search, clear, print, getsize - figure out if you can use these straight from SLL or do you need to override??
 
     //sortedInsert
     @Override 
@@ -101,6 +103,7 @@ public class Stack extends SLL
         return null;
     }
 
+    //O(n)
     public int searchStack(int data) {
         DNode current = getHead();
         int count = 0;

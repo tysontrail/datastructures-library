@@ -44,14 +44,17 @@ public QueueLL(DNode head, DNode tail) {
     setSize(0);
 }
 
+  //O(n) - could make it O(1) if had a tail pointer for SLL
   public void enqueue(DNode node) {
     super.insertTail(node);
   }
 
+  //O(1)
   public void dequeue() {
     super.deleteHead();
   }
 
+  //O(1)
   public DNode peek() {
     if(getHead() == null) {
       System.out.println("The queue is empty");
@@ -67,6 +70,7 @@ public QueueLL(DNode head, DNode tail) {
     return false;
   }
 
+  //O(n)
   public int searchQueue(int data) {
     DNode current = getHead();
     int count = 0;
