@@ -78,8 +78,6 @@ public class AVL extends BST {
     // Remove root node from queue
     queue.remove();
 
-    System.out.println("AVL Tree insert order");
-
     while (queue.size() > 0) {
 
       // Remove node from queue
@@ -90,9 +88,6 @@ public class AVL extends BST {
 
       // Insert node into AVL
       insert(avlNode);
-
-      // Print node
-      avlNode.print();
 
       if (current.getLeft() != null) {
         // Enqueue left child
