@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="mylib.AppTest" time="0.037" tests="1" errors="0" skipped="0" failures="0">
-=======
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="mylib.AppTest" time="0.031" tests="1" errors="0" skipped="0" failures="0">
->>>>>>> c046197194532329731415a06903b1f1df21ec7d
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="mylib.AppTest" time="0.03" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="18"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -15,13 +11,8 @@
     <property name="java.vm.specification.version" value="18"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CA"/>
-<<<<<<< HEAD
-    <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/18.0.1.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/target/surefire/surefirebooter6198305253437733186.jar /Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/target/surefire 2022-08-09T15-20-02_210-jvmRun1 surefire14443040194713829440tmp surefire_011879065408870748919tmp"/>
-=======
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-18.0.1.1.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/target/surefire/surefirebooter11019991721170309983.jar /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/target/surefire 2022-08-09T15-23-33_689-jvmRun1 surefire14989276335525962672tmp surefire_011402150196883181368tmp"/>
->>>>>>> c046197194532329731415a06903b1f1df21ec7d
+    <property name="sun.java.command" value="/Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/target/surefire/surefirebooter14745260432876777629.jar /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/target/surefire 2022-08-09T16-25-06_804-jvmRun1 surefire12877350775642626126tmp surefire_0439378520857338722tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/target/test-classes:/Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/target/classes:/Users/tysontrail/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/tysontrail/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
@@ -38,11 +29,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-<<<<<<< HEAD
-    <property name="surefire.real.class.path" value="/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/target/surefire/surefirebooter6198305253437733186.jar"/>
-=======
-    <property name="surefire.real.class.path" value="/Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/target/surefire/surefirebooter11019991721170309983.jar"/>
->>>>>>> c046197194532329731415a06903b1f1df21ec7d
+    <property name="surefire.real.class.path" value="/Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/target/surefire/surefirebooter14745260432876777629.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="18.0.1.1+2-6"/>
@@ -68,5 +55,5 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="62.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="mylib.AppTest" time="0.001"/>
+  <testcase name="shouldAnswerWithTrue" classname="mylib.AppTest" time="0.003"/>
 </testsuite>
