@@ -9,7 +9,7 @@ public class App
     public static void main( String[] args )
     {
         System.out.println("\n********** MODULE 1: LINEAR DATA STRUCTURES ********** \n");
-        System.out.println("\n****** SINGLY LINKED LIST ******\n");
+        System.out.println("****** SINGLY LINKED LIST ******\n");
         SLL ssl = new SLL();
         //Insertion methods tests
         ssl.insert(new DNode(1), 0);
