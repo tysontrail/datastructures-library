@@ -66,6 +66,7 @@ public class DLL extends SLL
 
     //INSERTION METHODS
     //Inserts node object at head of the list
+    //O(1)
     @Override
     public void insertHead(DNode node) {
         if (getHead() == null) {
@@ -81,6 +82,7 @@ public class DLL extends SLL
     }
 
     //Inserts node object at the tail of the list
+    //O(1)
     @Override
     public void insertTail(DNode node) {
 
@@ -97,6 +99,7 @@ public class DLL extends SLL
     }
 
     //Inserts node object in the specified position
+    //O(n)
     @Override
     public void insert(DNode node, int position) {
         if(getHead() == null) {
@@ -124,6 +127,7 @@ public class DLL extends SLL
     }
 
     //Inserts node object in its proper position in a sorted list
+    //O(n)
     @Override
     public void sortedInsert(DNode node) {
 
@@ -132,12 +136,17 @@ public class DLL extends SLL
             sort();
         }
     
-        if(getHead() == null || getHead().getData() > node.getData()) {
+        if(current == null) {
             insertHead(node);
             setSize(getSize()-1);
         }
 
-        if(getLastNode().getData() < node.getData()) {
+        else if(getHead().getData() >= node.getData()) {
+            insertHead(node);
+            setSize(getSize()-1);
+        }
+
+        else if(getLastNode().getData() < node.getData()) {
             insertTail(node);
             setSize(getSize()-1);
         }
@@ -161,25 +170,27 @@ public class DLL extends SLL
     }
 
     //SORT METHODS
+    //O(n^2)
     @Override
     public void sort() {
         super.sort();
         setTail(getLastNode());
     }
 
+    //O(n)
     @Override
     public void sortedInserted(DNode node) {
         if(getSorted() == null || getSorted().getData() > node.getData()) {
 			node.setNext(getSorted());
             //getSorted().setPrev(node);
-            setSorted(node);
-            
+            setSorted(node);           
 		}
         else {
 			DNode current = getSorted();
             //System.out.println("geetSorted: "+getSorted());
 			while(current.getNext() != null && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
 				current = current.getNext();
+                
 			}
 			node.setNext(current.getNext());
             current.getNext().setPrev(node);
@@ -190,6 +201,7 @@ public class DLL extends SLL
 
     //DELETE METHODS
     //Delete head node
+    //O(1)
     @Override
     public DNode deleteHead() {
         DNode temp = getHead();
@@ -200,6 +212,7 @@ public class DLL extends SLL
     }
 
     //Delete tail node
+    //O(1)
     @Override
     public DNode deleteTail() {
         DNode temp = getTail();
@@ -210,6 +223,7 @@ public class DLL extends SLL
     }
 
     //Deletes the node if found in the list
+    //O(n - 1) AKA O(n)
     @Override
     public DNode delete(int data) {
         DNode current = getHead();
@@ -224,6 +238,7 @@ public class DLL extends SLL
         else if(getTail().getData() == data) {
             return deleteTail();
         }
+        
         while (current != null && current.getData() != data) {
             tempNext = current;
             current = current.getNext();

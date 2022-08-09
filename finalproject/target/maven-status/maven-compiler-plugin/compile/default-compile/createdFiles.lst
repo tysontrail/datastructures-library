@@ -1,0 +1,18 @@
+<<<<<<< HEAD
+=======
+mylib/kApp.class
+mylib/AVL.class
+mylib/DLL.class
+mylib/tApp.class
+mylib/CSLL.class
+mylib/TNode.class
+mylib/MaxH.class
+mylib/SLL.class
+mylib/BST.class
+mylib/DNode.class
+mylib/Heap.class
+mylib/QueueLL.class
+mylib/MinH.class
+mylib/CDLL.class
+mylib/Stack.class
+>>>>>>> 5431c6150801f123575f2d97da122ca66eb67a76

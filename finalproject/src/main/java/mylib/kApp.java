@@ -25,8 +25,8 @@ public class kApp
         ssl.print();
 
         //Sorted insert test
-        ssl.sortedInsert(new DNode(11));
-        System.out.println("\nSorted insert of value 11");
+        ssl.sortedInsert(new DNode(0));
+        System.out.println("\nSorted insert of value 0");
         ssl.print();
 
         //is Sorted flag check
@@ -36,11 +36,17 @@ public class kApp
 
         //Delete method tests
         System.out.println("\nDelete method tests");
-        ssl.delete(88);
-        ssl.deleteTail();
-        ssl.deleteHead();
-        ssl.delete(34);
+        System.out.println("\nDeleted Data 15");
+        ssl.delete(15);
         ssl.print();
+        System.out.println("\nDeleted Tail");
+        ssl.deleteTail();
+        ssl.print();
+        System.out.println("\nDeleted Head");
+        ssl.deleteHead();
+        ssl.print();
+        System.out.println("\nDelete element not in list test: ");
+        ssl.delete(100);
 
         System.out.println("\nSearch");
         System.out.println("Search for 4: ");
@@ -70,8 +76,8 @@ public class kApp
 
 
         //Sorted insert test
-        dll.sortedInsert(new DNode(11));
-        System.out.println("\nSorted insert of value 11");
+        dll.sortedInsert(new DNode(0));
+        System.out.println("\nSorted insert of value 0");
         dll.print();
 
         //is Sorted flag check
@@ -81,8 +87,8 @@ public class kApp
 
         //Delete method tests
         System.out.println("\nDelete method tests");
-        System.out.println("\nDeleted Data 11");
-        dll.delete(11);
+        System.out.println("\nDeleted Data 15");
+        dll.delete(15);
         dll.print();
         System.out.println("\nDeleted Tail");
         dll.deleteTail();
@@ -90,6 +96,8 @@ public class kApp
         System.out.println("\nDeleted Head");
         dll.deleteHead();
         dll.print();
+        System.out.println("\nDelete element not in list test: ");
+        dll.delete(100);
 
         System.out.println("\nSearch");
         System.out.println("Search for 4: ");
@@ -103,6 +111,7 @@ public class kApp
 
         System.out.println("\n****** CIRCULAR SINGLY LINKED LIST ******** \n");
         CSLL csll = new CSLL();
+
         //INSERTION METHODS
 
         csll.insertTail(new DNode(16));
@@ -169,19 +178,22 @@ public class kApp
         cdll.print();
 
         //SORT METHOD
-        // cdll.sort();
-        // System.out.println("\nThe sorted list: ");
-        // cdll.print();
+        cdll.sort();
+        System.out.println("\nThe sorted list: ");
+        cdll.print();
+
+        System.out.println("\nThe sorted list: ");
 
         //is Sorted flag check
         cdll.insertHead(new DNode(45));
         System.out.println("\nIs sorted flag test");
         cdll.print();
+        
 
         //Sorted insert test
-        // cdll.sortedInsert(new DNode(32));
-        // System.out.println("\nSorted insert of value 11");
-        // cdll.print();
+        cdll.sortedInsert(new DNode(32));
+        System.out.println("\nSorted insert of value 32");
+        cdll.print();
 
         //SEARCH METHODS
         System.out.println("\nSearch");
@@ -200,7 +212,7 @@ public class kApp
         cdll.deleteHead();
         cdll.print();
         System.out.println("\nDelete 16 \n");
-        cdll.delete(17);
+        cdll.delete(16);
         cdll.print();
         System.out.println("\nTry to delete element not in list:");
         cdll.delete(56);
@@ -220,29 +232,58 @@ public class kApp
         stack.push(new DNode(91));
         stack.print();
 
-        System.out.println("\n Pop \n");
+        System.out.println("\nPop");
         stack.pop();
         stack.print();
+        System.out.println();
         stack.pop();
         stack.print();
 
-        System.out.println("\n Peek - check what is on top");
-        stack.peek();
+        System.out.println("\nPeek");
+        System.out.println(stack.peek());
 
-        System.out.println("\n Search - return position object is on stack");
+        System.out.println("\nSearch for Value: 2s position");
+        System.out.println(stack.searchStack(2));
 
+        System.out.println("\nCheck if stack is empty");
+        System.out.println(stack.isEmpty());
 
-        System.out.println("\n Check if stack is empty");
-        stack.isEmpty();
-
-        System.out.println("\n Clear");
+        System.out.println("\nClear");
         stack.clear();
         stack.print();
 
-        System.out.println("\n Recheck if stack is empty");
-        stack.isEmpty();
+        System.out.println("\nRecheck if stack is empty");
+        System.out.println(stack.isEmpty());
 
+        System.out.println("\n******* QUEUES ******** \n");
+        QueueLL queue = new QueueLL();
+
+        System.out.println("Enqueue \n");
+        queue.enqueue(new DNode(3));
+        queue.enqueue(new DNode(11));
+        queue.enqueue(new DNode(7));
+        queue.enqueue(new DNode(64));
+        queue.enqueue(new DNode(1));
+        queue.print();
+
+        System.out.println("\nDequeue");
+        queue.dequeue();
+        queue.print();
         
+        System.out.println("\nPeek");
+        System.out.println(queue.peek());
 
-    }
+        System.out.println("\nSearch for Value: 7s position");
+        System.out.println(queue.searchQueue(7));
+
+        System.out.println("\nCheck if stack is empty");
+        System.out.println(queue.isEmpty());
+
+        System.out.println("\nClear");
+        queue.clear();
+        queue.print();
+
+        System.out.println("\nRecheck if queue is empty");
+        System.out.println(queue.isEmpty());
+     }
 }

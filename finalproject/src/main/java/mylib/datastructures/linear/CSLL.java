@@ -52,6 +52,7 @@ public class CSLL extends SLL
     }
 
     //INSERTION METHODS
+    //O(1)
     @Override
     public void insertHead(DNode node) {
         //System.out.println(getTail());
@@ -65,6 +66,8 @@ public class CSLL extends SLL
 
     }
 
+    //O(n) - could have enhanced this by doing setPrev(head) to node and setNext(tail) to node
+    //but was trying to reduce the duplication of code and use the super class
     @Override
     public void insertTail(DNode node) {
         super.insertTail(node);
@@ -72,6 +75,7 @@ public class CSLL extends SLL
         node.setNext(getHead());
     }
 
+    //O(n)
     @Override
     public void insert(DNode node, int position) {
         super.insert(node, position);
@@ -79,6 +83,7 @@ public class CSLL extends SLL
         getTail().setNext(getHead());
     }
 
+    //O(n^2) - nested traversal
     @Override
     public void sort() {
         DNode current = getHead();
@@ -103,6 +108,7 @@ public class CSLL extends SLL
 
     //SEARCH
     //Looks up node in the list
+    //O(n)
     @Override
     public DNode search(int data) {
         DNode current = getHead();
@@ -118,6 +124,7 @@ public class CSLL extends SLL
 
     //DELETION METHODS
     //Delete head node
+    //O(1)
     @Override
     public DNode deleteHead() {
         DNode temp = getHead();
@@ -127,6 +134,7 @@ public class CSLL extends SLL
         return temp;
     }
 
+    //O(n)
     @Override
     public DNode deleteTail() {
         DNode current = getHead();
@@ -143,6 +151,7 @@ public class CSLL extends SLL
         return temp; 
     }
 
+    //Complexity O(n)
     @Override
     public DNode delete(int data) {
         DNode current = getHead();
