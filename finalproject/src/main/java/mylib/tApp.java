@@ -49,10 +49,10 @@ public class tApp {
 
     System.out.println("AVL");
     // Testing AVL default constructor
-    AVL avlDefault = AVL();
+    AVL avlDefault = new AVL();
 
     // Testing AVL first overload constructor
-    AVL avlOverload1 = AVL(5);
+    AVL avlOverload1 = new AVL(5);
 
     // Testing AVL overload constructor
     AVL avl = new AVL(bst.getRoot());

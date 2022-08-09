@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/heap/MaxH.java
 /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/tApp.java
 /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/heap/MinH.java
@@ -14,20 +13,3 @@
 /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/CDLL.java
 /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/nodes/DNode.java
 /Users/tysontrail/Desktop/ENSF594/Project/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/DLL.java
-=======
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/tApp.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/kApp.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/heap/MinH.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/heap/MaxH.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/nodes/TNode.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/DLL.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/SLL.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/QueueLL.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/heap/Heap.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/CSLL.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/trees/BST.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/trees/AVL.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/nodes/DNode.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/CDLL.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/Stack.java
->>>>>>> 5431c6150801f123575f2d97da122ca66eb67a76
