@@ -80,7 +80,12 @@ public class CDLL extends DLL
             current = temp;
         }
         setHead(getSorted());
-        setTail(getLastNode());
+
+        DNode temp2 = getHead();
+        for(int i = 1; i < getSize(); i++) {
+            temp2 = temp2.getNext();
+        }
+        setTail(temp2);
         getTail().setNext(getHead());
         getHead().setPrev(getTail());
     }

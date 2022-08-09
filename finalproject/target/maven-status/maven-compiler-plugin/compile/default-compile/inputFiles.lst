@@ -1,8 +1,6 @@
 /Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/tApp.java
 /Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/kApp.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/graphalgo/BFS.java
 /Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/heap/MinH.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/graphalgo/DFS.java
 /Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/heap/MaxH.java
 /Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/nodes/TNode.java
 /Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/DLL.java
@@ -15,4 +13,3 @@
 /Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/nodes/DNode.java
 /Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/CDLL.java
 /Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/datastructures/linear/Stack.java
-/Users/kimberleybaldwin/Desktop/ENSF 594/Assignments/ensf594-project-don-t-recurse-at-me/finalproject/src/main/java/mylib/graphalgo/Dijkstra.java

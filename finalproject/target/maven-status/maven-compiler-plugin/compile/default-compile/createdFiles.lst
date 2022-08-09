@@ -2,12 +2,9 @@ mylib/kApp.class
 mylib/AVL.class
 mylib/DLL.class
 mylib/tApp.class
-mylib/Dijkstra.class
 mylib/CSLL.class
-mylib/BFS.class
 mylib/TNode.class
 mylib/MaxH.class
-mylib/DFS.class
 mylib/SLL.class
 mylib/BST.class
 mylib/DNode.class
