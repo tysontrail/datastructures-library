@@ -1,35 +1,15 @@
 package mylib;
 
-<<<<<<< HEAD
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println("\n********** MODULE 1: LINEAR DATA STRUCTURES ********** \n");
-        System.out.println("****** SINGLY LINKED LIST ******\n");
-        SLL ssl = new SLL();
-        //Insertion methods tests
-        ssl.insert(new DNode(1), 0);
-        ssl.insertHead(new DNode(88));
-        ssl.insertTail(new DNode(4));
-        ssl.insert(new DNode(15), 3);
-=======
-/** Hello world! */
 public class App {
   public static void main(String[] args) {
     System.out.println("\n********** MODULE 1: LINEAR DATA STRUCTURES ********** \n");
-    System.out.println("\n****** SINGLY LINKED LIST ******\n");
+    System.out.println("****** SINGLY LINKED LIST ******\n");
     SLL ssl = new SLL();
     // Insertion methods tests
     ssl.insert(new DNode(1), 0);
     ssl.insertHead(new DNode(88));
     ssl.insertTail(new DNode(4));
     ssl.insert(new DNode(15), 3);
->>>>>>> bc8bc3255069aa2b7a6080724455e2d64b42271c
 
     System.out.println("The list:");
     ssl.print();
