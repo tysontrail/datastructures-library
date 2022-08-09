@@ -27,6 +27,7 @@ public class MinH extends Heap {
   }
 
   // Removes the value key from the vector and maintains heap properties
+  // Complexity O(logn)
   public void delete(int key) {
 
     // Create index for key and initialize to -1
@@ -58,7 +59,7 @@ public class MinH extends Heap {
   }
 
   // Applies heapsort to the vector content
-  // Uses heapify(int[] array)?
+  // Complexity O(nlogn)
   public void sort() {
 
     // Create array from elements
@@ -97,6 +98,7 @@ public class MinH extends Heap {
   }
 
   // Heapification process after deletion
+  // Complexity O(logn)
   private void heapifyDown(int i) {
     while (i < getSize()) {
       // If swapped element is less than its children, swap with the
@@ -122,6 +124,7 @@ public class MinH extends Heap {
   }
 
   // Heapification process after insertion
+  // Complexity O(logn)
   private void heapifyUp(int i) {
     while (i > 0) {
       // If added element is greater than its parent, swap
@@ -137,6 +140,7 @@ public class MinH extends Heap {
 
   // Takes in an array of values and returns a valid heap
   // this can be used by sort() and the third overload constructor
+  // Complexity O(nlogn)
   private Vector<Integer> heapify(int[] array) {
 
     // Start iterating from last non-leaf node

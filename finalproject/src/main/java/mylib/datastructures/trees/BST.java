@@ -37,6 +37,7 @@ public class BST {
   }
 
   // Insert(TNode node) : inserts the node passed as argument into the tree
+  // Complexity O(n)
   public void insert(TNode node) {
 
     // Set pointer to root node
@@ -69,6 +70,7 @@ public class BST {
   }
 
   // Insert(int val): creates a new node with data val to be inserted into the tree
+  // Complexity O(n)
   public void insert(int val) {
 
     TNode nodeToInsert = new TNode(val, 0, null, null, null);
@@ -105,6 +107,7 @@ public class BST {
   // Finds the node equivalent to the node_to_delete in the tree and removes it.
   // If an object of that value is not found then it prints to the user that the
   // object was not found
+  // Complexity O(n)
   public void delete(int val) {
 
     TNode current = getRoot();
@@ -217,6 +220,7 @@ public class BST {
 
   // Prints the tree content in order to the terminal using the print function
   // inside each node
+  // Complexity O(n)
   public void printInOrder(TNode current) {
     if (current != null) {
       printInOrder(current.getLeft());
@@ -227,6 +231,7 @@ public class BST {
 
   // prints the content of the tree in Breadth-First order, each level of the
   // tree will be printed on a separate line
+  // Complexity O(n)
   public void printBF() {
     // If tree is empty
     if (getRoot() == null) {
@@ -256,6 +261,7 @@ public class BST {
     }
   }
 
+  // Complexity O(n)
   public TNode search(int val) {
 
     TNode current = getRoot();

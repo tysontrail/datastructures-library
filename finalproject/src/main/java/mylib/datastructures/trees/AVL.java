@@ -101,6 +101,7 @@ public class AVL extends BST {
   }
 
   // Inserts the node object to the tree in its correct position as a leaf
+  // Complexity O(logn)
   public void insert(TNode nodeToInsert) {
 
     // Set pointer to root node
@@ -141,6 +142,7 @@ public class AVL extends BST {
   }
 
   // Creates a new node with data val to be inserted into the tree
+  // Complexity O(logn)
   public void insert(int val) {
 
     // Set pointer to root node
@@ -181,6 +183,7 @@ public class AVL extends BST {
     rebalance(nodeToInsert, pivot);
   }
 
+  // Complexity O(logn)
   public void rebalance(TNode nodeToInsert, TNode pivot) {
 
     TNode current, ancestor, son, grandson, temp;
