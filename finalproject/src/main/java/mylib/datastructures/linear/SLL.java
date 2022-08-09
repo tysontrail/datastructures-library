@@ -145,9 +145,9 @@ public class SLL
         }
         while(current.getNext() != getTailPointer()) {
             if(current.getData() < current.getNext().getData()) {
-                current = current.getNext();
+                current = current.getNext();  
             }
-            else{
+            else {
                 return false;
             }
         }
@@ -205,6 +205,10 @@ public class SLL
     //DELETION METHODS
     //Delete head node
     public DNode deleteHead() {
+        if(getHead() == null) {
+            System.out.println("Cannot delete from empty list");
+            return null;
+        }
         DNode temp = getHead();
         setHead(getHead().getNext());
         setSize(getSize()-1);
@@ -213,6 +217,10 @@ public class SLL
 
     //Delete tail node
     public DNode deleteTail() {
+        if(getHead() == null) {
+            System.out.println("Cannot delete from empty list");
+            return null;
+        }
         DNode current = getHead();
         DNode temp = null;
         setSize(getSize()-1);

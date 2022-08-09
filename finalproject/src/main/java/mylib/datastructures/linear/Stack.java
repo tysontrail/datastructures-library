@@ -33,7 +33,7 @@ public class Stack extends SLL
     }
 
     public Stack(DNode head) {
-        getHead(head);
+        setHead(head);
         setSize(0);
     }
 
@@ -58,7 +58,7 @@ public class Stack extends SLL
             System.out.println("The stack is empty");
             return -1;
         }
-        return System.out.println(getHead().getData());
+        return getHead().getData();
     
     }
 
@@ -101,12 +101,19 @@ public class Stack extends SLL
         return null;
     }
 
-    public DNode getHead() {
-        return head;
-    }
-
-    public void setHead(DNode head) {
-        this.head = head;
+    public int searchStack(int data) {
+        DNode current = getHead();
+        int count = 0;
+		while(current != null && current.getData() != data) {
+			current = current.getNext();
+            count++;
+		}
+		if(current != null && current.getData() == data) {
+			return count;
+		}
+		else {
+			return -1;
+		}
     }
 
 }

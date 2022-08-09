@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 mylib/kApp.class
 mylib/AVL.class
 mylib/DLL.class
@@ -18,4 +16,3 @@ mylib/QueueLL.class
 mylib/MinH.class
 mylib/CDLL.class
 mylib/Stack.class
->>>>>>> 59a40ca15a02bea00a9412a1abfc463b852e79d2

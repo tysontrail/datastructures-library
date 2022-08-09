@@ -132,7 +132,7 @@ public class DLL extends SLL
             sort();
         }
     
-        if(getHead() == null || getHead().getData() > node.getData()) {
+        if(current == null || getHead().getData() >= node.getData()) {
             insertHead(node);
             setSize(getSize()-1);
         }
@@ -172,15 +172,18 @@ public class DLL extends SLL
         if(getSorted() == null || getSorted().getData() > node.getData()) {
 			node.setNext(getSorted());
             //getSorted().setPrev(node);
-            setSorted(node);
-            
+            setSorted(node);           
 		}
         else {
 			DNode current = getSorted();
             //System.out.println("geetSorted: "+getSorted());
 			while(current.getNext() != null && current.getData() != node.getData() && current.getNext().getData() < node.getData()) {
 				current = current.getNext();
+                
 			}
+            System.out.println("current: "+ current);
+            System.out.println("Prev:" +current.getPrev());
+            System.out.println("Next:" +current.getNext());
 			node.setNext(current.getNext());
             current.getNext().setPrev(node);
             node.setPrev(current);

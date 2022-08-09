@@ -8,49 +8,49 @@ public class kApp
 {
     public static void main( String[] args )
     {
-        System.out.println("\n******** SINGLY LINKED LIST ********\n");
-        SLL ssl = new SLL();
-        //Insertion methods tests
-        ssl.insert(new DNode(1), 0);
-        ssl.insertHead(new DNode(88));
-        ssl.insertTail(new DNode(4));
-        ssl.insert(new DNode(15), 3);
+        // System.out.println("\n******** SINGLY LINKED LIST ********\n");
+        // SLL ssl = new SLL();
+        // //Insertion methods tests
+        // ssl.insert(new DNode(1), 0);
+        // ssl.insertHead(new DNode(88));
+        // ssl.insertTail(new DNode(4));
+        // ssl.insert(new DNode(15), 3);
 
-        System.out.println("The list:");
-        ssl.print();
+        // System.out.println("The list:");
+        // ssl.print();
 
-        //Sort method test
-        ssl.sort();
-        System.out.println("\nThe sorted list: ");
-        ssl.print();
+        // //Sort method test
+        // ssl.sort();
+        // System.out.println("\nThe sorted list: ");
+        // ssl.print();
 
-        //Sorted insert test
-        ssl.sortedInsert(new DNode(11));
-        System.out.println("\nSorted insert of value 11");
-        ssl.print();
+        // //Sorted insert test
+        // ssl.sortedInsert(new DNode(11));
+        // System.out.println("\nSorted insert of value 11");
+        // ssl.print();
 
-        //is Sorted flag check
-        ssl.insertHead(new DNode(45));
-        System.out.println("\nIs sorted flag test");
-        ssl.print();
+        // //is Sorted flag check
+        // ssl.insertHead(new DNode(45));
+        // System.out.println("\nIs sorted flag test");
+        // ssl.print();
 
-        //Delete method tests
-        System.out.println("\nDelete method tests");
-        ssl.delete(88);
-        ssl.deleteTail();
-        ssl.deleteHead();
-        ssl.delete(34);
-        ssl.print();
+        // //Delete method tests
+        // System.out.println("\nDelete method tests");
+        // ssl.delete(88);
+        // ssl.deleteTail();
+        // ssl.deleteHead();
+        // ssl.delete(34);
+        // ssl.print();
 
-        System.out.println("\nSearch");
-        System.out.println("Search for 4: ");
-        System.out.println(ssl.search(11));
-        System.out.println("Search for 45: ");
-        System.out.println(ssl.search(45));
+        // System.out.println("\nSearch");
+        // System.out.println("Search for 4: ");
+        // System.out.println(ssl.search(11));
+        // System.out.println("Search for 45: ");
+        // System.out.println(ssl.search(45));
 
-        System.out.println("\nClear");
-        ssl.clear();
-        ssl.print();
+        // System.out.println("\nClear");
+        // ssl.clear();
+        // ssl.print();
 
         System.out.println("\n****** DOUBLY LINKED LIST ******** \n");
         DLL dll= new DLL();
@@ -103,6 +103,7 @@ public class kApp
 
         System.out.println("\n****** CIRCULAR SINGLY LINKED LIST ******** \n");
         CSLL csll = new CSLL();
+
         //INSERTION METHODS
 
         csll.insertTail(new DNode(16));
@@ -169,19 +170,22 @@ public class kApp
         cdll.print();
 
         //SORT METHOD
-        // cdll.sort();
-        // System.out.println("\nThe sorted list: ");
-        // cdll.print();
+        cdll.sort();
+        System.out.println("\nThe sorted list: ");
+        cdll.print();
+
+        System.out.println("\nThe sorted list: ");
 
         //is Sorted flag check
         cdll.insertHead(new DNode(45));
         System.out.println("\nIs sorted flag test");
         cdll.print();
+        
 
         //Sorted insert test
-        // cdll.sortedInsert(new DNode(32));
-        // System.out.println("\nSorted insert of value 11");
-        // cdll.print();
+        cdll.sortedInsert(new DNode(32));
+        System.out.println("\nSorted insert of value 32");
+        cdll.print();
 
         //SEARCH METHODS
         System.out.println("\nSearch");
@@ -200,7 +204,7 @@ public class kApp
         cdll.deleteHead();
         cdll.print();
         System.out.println("\nDelete 16 \n");
-        cdll.delete(17);
+        cdll.delete(16);
         cdll.print();
         System.out.println("\nTry to delete element not in list:");
         cdll.delete(56);
@@ -220,29 +224,58 @@ public class kApp
         stack.push(new DNode(91));
         stack.print();
 
-        System.out.println("\n Pop \n");
+        System.out.println("\nPop");
         stack.pop();
         stack.print();
+        System.out.println();
         stack.pop();
         stack.print();
 
-        System.out.println("\n Peek - check what is on top");
-        stack.peek();
+        System.out.println("\nPeek");
+        System.out.println(stack.peek());
 
-        System.out.println("\n Search - return position object is on stack");
+        System.out.println("\nSearch for Value: 2s position");
+        System.out.println(stack.searchStack(2));
 
+        System.out.println("\nCheck if stack is empty");
+        System.out.println(stack.isEmpty());
 
-        System.out.println("\n Check if stack is empty");
-        stack.isEmpty();
-
-        System.out.println("\n Clear");
+        System.out.println("\nClear");
         stack.clear();
         stack.print();
 
-        System.out.println("\n Recheck if stack is empty");
-        stack.isEmpty();
+        System.out.println("\nRecheck if stack is empty");
+        System.out.println(stack.isEmpty());
 
+        System.out.println("\n******* QUEUES ******** \n");
+        QueueLL queue = new QueueLL();
+
+        System.out.println("Enqueue \n");
+        queue.enqueue(new DNode(3));
+        queue.enqueue(new DNode(11));
+        queue.enqueue(new DNode(7));
+        queue.enqueue(new DNode(64));
+        queue.enqueue(new DNode(1));
+        queue.print();
+
+        System.out.println("\nDequeue");
+        queue.dequeue();
+        queue.print();
         
+        System.out.println("\nPeek");
+        System.out.println(queue.peek());
 
-    }
+        System.out.println("\nSearch for Value: 7s position");
+        System.out.println(queue.searchQueue(7));
+
+        System.out.println("\nCheck if stack is empty");
+        System.out.println(queue.isEmpty());
+
+        System.out.println("\nClear");
+        queue.clear();
+        queue.print();
+
+        System.out.println("\nRecheck if queue is empty");
+        System.out.println(queue.isEmpty());
+     }
 }
