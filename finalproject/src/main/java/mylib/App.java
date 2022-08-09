@@ -4,11 +4,11 @@ package mylib;
  * Hello world!
  *
  */
-public class kApp 
+public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println("\n ********** MODULE 1: LINEAR DATA STRUCTURES ********** \n");
+        System.out.println("\n********** MODULE 1: LINEAR DATA STRUCTURES ********** \n");
         System.out.println("\n****** SINGLY LINKED LIST ******\n");
         SLL ssl = new SLL();
         //Insertion methods tests
@@ -112,7 +112,6 @@ public class kApp
         CSLL csll = new CSLL();
 
         //INSERTION METHODS
-
         csll.insertTail(new DNode(16));
         csll.insertTail(new DNode(55));
         csll.insertTail(new DNode(15));
@@ -165,7 +164,6 @@ public class kApp
         CDLL cdll = new CDLL();
 
         //INSERTION METHODS
-
         cdll.insertTail(new DNode(16));
         cdll.insertTail(new DNode(55));
         cdll.insertTail(new DNode(15));
@@ -183,7 +181,6 @@ public class kApp
         cdll.insertHead(new DNode(45));
         System.out.println("\nIs sorted flag test");
         cdll.print();
-        
 
         //Sorted insert test
         cdll.sortedInsert(new DNode(32));
@@ -342,7 +339,7 @@ public class kApp
         avl.insert(14);
         avl.printBF();
     
-        System.out.println("\n********** MODULE 3: HEAPS ********** \n");
+        System.out.println("\n********** MODULE 3: HEAPS **********");
     
         System.out.println("\n****** MAX HEAP ******");
     
