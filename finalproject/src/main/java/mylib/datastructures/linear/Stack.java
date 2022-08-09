@@ -7,15 +7,16 @@ package mylib;
 //ADD IS EMPTY TO STACK
 public class Stack extends SLL
 {
-    private DNode tail;
+    private DNode head;
     private int size;
 
-    public DNode getTail() {
-        return tail;
+
+    public DNode getHead() {
+        return head;
     }
 
-    public void setTail(DNode tail) {
-        this.tail = tail;
+    public void setHead(DNode head) {
+        this.head = head;
     }
 
     public int getSize() {
@@ -27,13 +28,13 @@ public class Stack extends SLL
     }
 
     public Stack() {
-        this.tail = null;
-        this.size = 0;
+        setHead(null);
+        setSize(0);
     }
 
-    public Stack(DNode tail) {
-        this.tail = tail;
-        this.size = 0;
+    public Stack(DNode head) {
+        getHead(head);
+        setSize(0);
     }
 
     public void push(DNode node) {
@@ -45,12 +46,19 @@ public class Stack extends SLL
         return super.deleteHead();
     }
     
+    public boolean isEmpty() {
+        if(getHead() == null) {
+            return true;
+        }
+        return false;
+    }
+
     public int peek() {
-        if(tail == null) {
+        if(getHead() == null) {
             System.out.println("The stack is empty");
             return -1;
         }
-        return tail.getData();
+        return System.out.println(getHead().getData());
     
     }
 
@@ -91,6 +99,14 @@ public class Stack extends SLL
     @Override
     public DNode delete(int data) {
         return null;
+    }
+
+    public DNode getHead() {
+        return head;
+    }
+
+    public void setHead(DNode head) {
+        this.head = head;
     }
 
 }

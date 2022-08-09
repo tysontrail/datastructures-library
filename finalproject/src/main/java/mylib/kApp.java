@@ -210,5 +210,39 @@ public class kApp
         cdll.clear();
         cdll.print();
 
+        System.out.println("\n****** STACKS ******** \n");
+        Stack stack = new Stack();
+
+        System.out.println("Push \n");
+        stack.push(new DNode(2));
+        stack.push(new DNode(5));
+        stack.push(new DNode(15));
+        stack.push(new DNode(91));
+        stack.print();
+
+        System.out.println("\n Pop \n");
+        stack.pop();
+        stack.print();
+        stack.pop();
+        stack.print();
+
+        System.out.println("\n Peek - check what is on top");
+        stack.peek();
+
+        System.out.println("\n Search - return position object is on stack");
+
+
+        System.out.println("\n Check if stack is empty");
+        stack.isEmpty();
+
+        System.out.println("\n Clear");
+        stack.clear();
+        stack.print();
+
+        System.out.println("\n Recheck if stack is empty");
+        stack.isEmpty();
+
+        
+
     }
 }
