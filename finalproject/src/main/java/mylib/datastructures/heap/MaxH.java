@@ -1,16 +1,13 @@
 package mylib;
 
+import java.util.Collections;
 import java.util.Vector;
 
 public class MaxH extends Heap {
 
-  // The only member variable of these class is an object of the class vector to
-  // hold the content of the heap. the vector object is of type integer and is named elements
-  private Vector<Integer> elements;
-
   // Default constructor initializes vector to no size
   public MaxH() {
-    elements = new Vector<Integer>(0);
+    this.elements = new Vector<Integer>(0);
   }
 
   // Overload constructor initializes vector to a size passed as argument
@@ -44,7 +41,7 @@ public class MaxH extends Heap {
     }
 
     // Check if key was found
-    if (idx != -1) {
+    if (idx == -1) {
       System.out.println("Value to delete not found.");
       return;
     } else {
@@ -77,19 +74,26 @@ public class MaxH extends Heap {
 
     // Sort array
     for (int i = getSize() - 1; i >= 0; i--) {
-      // Swap root/largest item with end item
-      swap(0, i);
+
       // Create new int array
       int[] arr = new int[i + 1];
       // Copy values from elements
-      for (int j = 0; j < i + 1; i++) {
+      for (int j = 0; j < i + 1; j++) {
         arr[j] = elements.get(j);
       }
       // Create new vector
       Vector<Integer> vector = new Vector<Integer>(arr.length);
       // Heapify arr
       vector = heapify(arr);
+      // Copy vector to elements
+      for (int j = 0; j < vector.size(); j++) {
+        elements.set(j, vector.get(j));
+      }
+      // Swap root/largest item with end item
+      swap(0, i);
     }
+    // Reverse order to re-create max heap
+    Collections.reverse(elements);
   }
 
   // Heapification process after deletion
@@ -97,8 +101,9 @@ public class MaxH extends Heap {
     while (i < getSize()) {
       // If swapped element is less than its children, swap with the
       // largest child
-      if (left(i) > elements.get(i) || right(i) > elements.get(i)) {
-        if (left(i) > right(i)) {
+      if (((2 * i + 1) < getSize() && left(i) > elements.get(i))
+          || ((2 * i + 1) < getSize() && right(i) > elements.get(i))) {
+        if (((2 * i + 2) >= getSize()) || (left(i) > right(i))) {
           // Swap left child
           swap(i, (2 * i + 1));
           // Update i to left child
@@ -135,7 +140,7 @@ public class MaxH extends Heap {
   private Vector<Integer> heapify(int[] array) {
 
     // Start iterating from last non-leaf node
-    for (int i = getSize() / 2 - 1; i >= 0; i--) {
+    for (int i = array.length / 2 - 1; i >= 0; i--) {
       int left = 2 * i + 1;
       int right = 2 * i + 2;
       int parent = i;
@@ -146,18 +151,18 @@ public class MaxH extends Heap {
       while ((left < array.length && array[left] > array[parent])
           || (right < array.length && array[right] > array[parent])) {
         // Swap larger child
-        if (array[left] > array[right]) {
+        if (right >= array.length || array[left] > array[right]) {
           // Swap parent and left child
           temp = array[left];
-          array[left] = array[i];
-          array[i] = temp;
+          array[left] = array[parent];
+          array[parent] = temp;
           // Assign parent index to left child
           parent = left;
         } else {
           // Swap parent with right child
           temp = array[right];
-          array[right] = array[i];
-          array[i] = temp;
+          array[right] = array[parent];
+          array[parent] = temp;
           // Assign parent index to right child
           parent = right;
         }
@@ -174,7 +179,6 @@ public class MaxH extends Heap {
     for (int i = 0; i < array.length; i++) {
       vector.add(array[i]);
     }
-
     return vector;
   }
 }

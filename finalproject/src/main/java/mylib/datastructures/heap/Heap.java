@@ -7,7 +7,7 @@ public class Heap {
   // The only member variable of these class is an object of the class vector to
   // hold the content of the heap. the vector object is of type integer and is named
   // elements
-  private Vector<Integer> elements;
+  protected Vector<Integer> elements;
 
   // Returns the size of the vector containing elements
   public int getSize() {
@@ -31,29 +31,19 @@ public class Heap {
 
   // Return parent of elements[i]
   protected int parent(int i) {
-    if (i > 1 && i < getSize()) {
-      return elements.get((i - 1) / 2);
-    } else {
-      return -1;
-    }
+    return elements.get((i - 1) / 2);
   }
 
   // Returns left child of elements[i]
   protected int left(int i) {
-    if ((2 * i + 1) < getSize()) {
-      return elements.get(2 * i + 1);
-    } else {
-      return -1;
-    }
+
+    return elements.get(2 * i + 1);
   }
 
   // Returns right child of elements[i]
   protected int right(int i) {
-    if ((2 * i + 2) < getSize()) {
-      return elements.get(2 * i + 2);
-    } else {
-      return -1;
-    }
+
+    return elements.get(2 * i + 2);
   }
 
   // Swaps contents of indices x and y
@@ -69,11 +59,42 @@ public class Heap {
   public void print() {
 
     for (int i = 0; i < getSize(); i++) {
-      System.out.print(parent(i) + " ");
+      if (i == 0) {
+        System.out.print("  ");
+      } else if (((i - 1) / 2) < 10) {
+        System.out.print("     ");
+      } else if (((i - 1) / 2) < 100) {
+        System.out.print("    ");
+      } else {
+        System.out.print("   ");
+      }
+
+      if (i > 0 && i < getSize()) {
+        System.out.print((i - 1) / 2);
+      } else {
+        System.out.print(-1);
+      }
     }
+
     System.out.println();
+
     for (int i = 0; i < getSize(); i++) {
-      System.out.print(elements.get(i) + " ");
+      if (i == 0) {
+        if (elements.get(i) < 10) {
+          System.out.print("   ");
+        } else if (elements.get(i) < 100) {
+          System.out.print("  ");
+        } else {
+          System.out.print("  ");
+        }
+      } else if (elements.get(i) < 10) {
+        System.out.print("     ");
+      } else if (elements.get(i) < 100) {
+        System.out.print("    ");
+      } else {
+        System.out.print("   ");
+      }
+      System.out.print(elements.get(i));
     }
     System.out.println();
   }
