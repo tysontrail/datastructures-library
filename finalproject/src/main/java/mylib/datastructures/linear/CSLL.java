@@ -51,6 +51,14 @@ public class CSLL extends SLL
         setSize(0);
     }
 
+    public CSLL(DNode head) {
+        setHead(head);
+        setTail(getHead());
+        getHead().setNext(getTail());
+        getTail().setNext(getHead());
+        setSize(0);
+    }
+
     //INSERTION METHODS
     //O(1)
     @Override

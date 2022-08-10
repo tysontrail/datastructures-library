@@ -43,6 +43,16 @@ public class CDLL extends DLL
         setSize(0);
     }
 
+    public CDLL(DNode head) {
+        setHead(head);
+        setTail(head);
+        getHead().setNext(getTail());
+        getTail().setNext(getHead());
+        getHead().setPrev(getTail());
+        getTail().setPrev(getHead());
+        setSize(0);
+    }
+
     //INSERTION METHODS
     //O(1)
     @Override

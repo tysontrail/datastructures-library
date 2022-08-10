@@ -4,7 +4,11 @@ public class App {
   public static void main(String[] args) {
     System.out.println("\n********** MODULE 1: LINEAR DATA STRUCTURES ********** \n");
     System.out.println("****** SINGLY LINKED LIST ******\n");
+
+    //Constructors
     SLL ssl = new SLL();
+    SLL sslOverload = new SLL(new DNode(14));
+
     // Insertion methods tests
     ssl.insert(new DNode(1), 0);
     ssl.insertHead(new DNode(88));
@@ -54,6 +58,7 @@ public class App {
 
     System.out.println("\n****** DOUBLY LINKED LIST ****** \n");
     DLL dll = new DLL();
+    DLL dllOverload = new DLL(new DNode(2), new DNode(44));
 
     // Insertion methods tests
     dll.insert(new DNode(1), 0);
@@ -103,6 +108,7 @@ public class App {
 
     System.out.println("\n****** CIRCULAR SINGLY LINKED LIST ******\n");
     CSLL csll = new CSLL();
+    CSLL csllOverload = new CSLL(new DNode(14));
 
     // INSERTION METHODS
     csll.insertTail(new DNode(16));
@@ -155,6 +161,7 @@ public class App {
 
     System.out.println("\n****** CIRCULAR DOUBLY LINKED LIST ****** \n");
     CDLL cdll = new CDLL();
+    CDLL cdllOverload = new CDLL(new DNode(33));
 
     // INSERTION METHODS
     cdll.insertTail(new DNode(16));
@@ -207,6 +214,7 @@ public class App {
 
     System.out.println("\n****** STACKS ****** \n");
     Stack stack = new Stack();
+    Stack stackOverload = new Stack(new DNode(3));
 
     System.out.println("Push");
     stack.push(new DNode(2));
@@ -240,6 +248,7 @@ public class App {
 
     System.out.println("\n****** QUEUES ******\n");
     QueueLL queue = new QueueLL();
+    QueueLL queueOverload = new QueueLL(new DNode(11), new DNode(2));
 
     System.out.println("Enqueue");
     queue.enqueue(new DNode(3));
