@@ -1,7 +1,7 @@
-# Data Structures Library in Java
+# Java ☕️ Data Structures Library
 This is a Java library that provides implementations for several linear data structures including singly linked list, doubly linked list, circular linked list, circular doubly linked list, stack based singly linked list, and queue based singly linked list. Additionally, this library includes tree structures like binary search tree, AVL tree, and heap structures including vector-based min and max heaps. This library was developed as a collaborative effort, with KBaldwin2 (https://github.com/KBaldwin2) as a contributor.
 
-## Usage
+## Usage 🦾
 To use this library, simply include the relevant classes in your Java project. Each data structure is implemented in a separate class, and different node classes are also provided. The following is a brief overview of the classes provided in this library:
 
 ### Linear Data Structures
@@ -23,8 +23,7 @@ To use this library, simply include the relevant classes in your Java project. E
 - TNode: A general tree node class that can be used for both binary search tree and AVL tree.
 Each class provides methods for inserting, deleting, and searching for nodes in the data structure.
 
-## Contributing
-If you would like to contribute to this project, feel free to fork the repository and make your changes. Once you have made your changes, submit a pull request and we will review your changes.
+## Contributing 🤝 If you would like to contribute to this project, feel free to fork the repository and make your changes. Once you have made your changes, submit a pull request and we will review your changes.
 
-## License
+## License 📝
 This project is licensed under the MIT License. See the LICENSE file for more information.
