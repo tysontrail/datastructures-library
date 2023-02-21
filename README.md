@@ -23,8 +23,8 @@ To use this library, simply include the relevant classes in your Java project. E
 - TNode: A general tree node class that can be used for both binary search tree and AVL tree.
 Each class provides methods for inserting, deleting, and searching for nodes in the data structure.
 
-Contributing
+## Contributing
 If you would like to contribute to this project, feel free to fork the repository and make your changes. Once you have made your changes, submit a pull request and we will review your changes.
 
-License
+## License
 This project is licensed under the MIT License. See the LICENSE file for more information.
